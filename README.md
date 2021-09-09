@@ -6,12 +6,13 @@ Some of the modifications will not have to do with the logger itself, but test o
 - User input
 - Opening applications
 
-The logging will help provide information based on these events occuring.
+The logging will help provide information based on these events occurring.
 
 Testing that will be performed include
-- **Functional testing**- Test working as expected based on predefined cirtumstancs
-   - Positive and negative- Testing based on assertions
-- Acceptance testing
+- **Functional testing**- verifying the application is working as intended based predefined circumstance
+   - Positive and negative- Testing based on assertions of input 
+- **Acceptance testing**- Verifying the output of logic is what is expectec based on requirements
+  - Verifying logic is correct
 
 # Logger
 
@@ -99,25 +100,10 @@ Reference https://www.jenkins.io/doc/book/installing/docker/ for more informatio
 
 ## Install Jenkins
 1. Run the following in the terminal
-   1. `docker compose up`
-   2. Within about 2 minutes and jenkins should be up at http://localhost:8080
-   
-   
-## Create Persistance for jenkins
-This will allow us to sae our configuration of the jenkins controller and our jobs when we reboot minikube for jenkins.
-### Prerequisite
-- Needs K8s (minikube, kubectl)
-- Need Helm
-## Deploy peristance yml
-1. **Terminal**: Run the following commands
-   1. `cd jenkins`
-   2. `kubectl create namespace jenkins`
-   3. ` minikube start`
-   4. ` kubectl create namespace jenkins`
-   5. `kubectl get namespaces`
-2. Verify jenkins is in the list
-   1. `helm repo add jenkinsci https://charts.jenkins.io`
-   2. `helm repo update`
+   1. cd jenkins
+   2. `docker compose up`
+   3. Within about 2 minutes and jenkins should be up at http://localhost:8080
+
 
 ## Create docker slaves within jenkins
 ### PRerequisiute
