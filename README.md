@@ -115,14 +115,20 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
    ```
       
 2. Run the following in the terminal
-   1. cd jenkins
-   2. `script/jenkins.sh`
-   3. Within about 2 minutes and jenkins should 
-   4. **Browser**: navigate to http://localhost:8080
-   5. IF first time, run the following command in a terminal
+   1. **Localhost**: Open a terminal and SSH to the VM using the following command
+      1. `ssh <username>@<IP of VM>`
+   2. **VM TERMINAL**: Run the following command
+      1. `git clone git@github.com:KellyRyanGlobal/testing-app.git`
+   3. **VM TERMINAL**: Navigate to the cloned repo for `testing-app`
+   4. **VM TERMINAL**: `cd jenkins`
+   5. **VM TERMINAL**:`script/jenkins.sh`
+   6. Within about 2 minutes and jenkins should 
+   7. **Local host**: Open a browaser
+   8. **Browser**: navigate to http://<VM IP>:8080
+   9. If it is the first time, run the following command in a terminal
       1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
-   6. **Webpage**: Enter the `initialadminPassword` into the browser
-   7. Install Suggested plugins 
+   10. **Webpage**: Enter the `initialadminPassword` into the browser
+   11. Install Suggested plugins 
 
 
 
