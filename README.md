@@ -1,3 +1,18 @@
+#Introduction
+This is a fork version of https://github.com/elanthis/easylogger. Modifications are made for simple testing purpose of running basic testing functionality within a jenkins environment.
+
+Some of the modifications will not have to do with the logger itself, but test out things such as:
+- System calls
+- User input
+- Opening applications
+
+The logging will help provide information based on these events occuring.
+
+Testing that will be performed include
+- **Functional testing**- Test working as expected based on predefined cirtumstancs
+   - Positive and negative- Testing based on assertions
+- Acceptance testing
+
 # Logger
 
 All classes reside in the `easylogger` namespace.
@@ -66,6 +81,13 @@ invariants.
 	ASSERT_NE(MAIN, left, right, "left must not equal right");
 	ASSERT_TRUE(MAIN, param, "param must be true");
 	ASSERT_FALSE(MAIN, param, "param must be false");
+## Build logger
+To build logger run the following command
+1. `make`
+2. Verify the test-bin is created
+3. Run the following command
+   1. g++ test.cc -o test.exe
+
 
 # Jenkins Docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
