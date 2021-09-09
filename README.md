@@ -1,15 +1,74 @@
-### Docker node sample project
+# Logger
 
-1. Run the folllowing to build the docker container
-   1. `docker build -t test-app .`
+All classes reside in the `easylogger` namespace.
 
-2. Run the command with the following command
-   1. `docker run -dp 3000:3000 test-app`
-3. To adjust the `port` make sure to alter the `package.json` along with the docker run command
+There is only one primary class that the user must be aware of, which is
+the `Logger` class.  Objects of `Logger` are used along with a set of
+macros to perform all logging.
 
-# Jenkins in docker image setup
+To create a new log, create a `Logger` object with a log name.
+
+	easylogger::Logger NETWORK("NETWORK");
+
+You can then write message to the `NETWORK` log using one of `LOG_TRACE`,
+`LOG_DEBUG`, `LOG_INFO`, `LOG_WARNING`, `LOG_ERROR`, or `LOG_FATAL`.
+
+	LOG_TRACE(NETWORK, "Trace message to NETWORK log");
+	LOG_WARNING(NETWORK, "Warning message to NETWORK log");
+
+You can inherit logs from each other, creating a hierarchy.  Pass the parent
+log as the second argument to the `Logger` constructor.
+
+	easylogger::Logger CONNECT("NETWORK.CONNECT", NETWORK);
+
+	LOG_INFO(CONNECT, "Connection received");
+
+Inherited logs will cause all messages to be sent to the parent log.  This
+is useful for classification of logs, as well as allowing some logs to be
+directed to alternative output streams.
+
+A `Logger` instance with no parent by default will log all messages to
+`std::cerr`.  `Logger` instances with a parent have no associated stream by
+default.
+
+You can set the associated stream on a `Logger` instance using the
+`Logger::Stream(std::ostream&)` method.  Any `std::ostream` derivative is
+acceptable.
+
+	std::ofstream network_log("network.log");
+	NETWORK.Stream(network_log);
+
+	std::ofstream connect_log("connect.log");
+	CONNECT.Stream(connect_log);
+
+With the above example, all network log messages will be written to
+`network.log`.  Additionally, any logs on the `CONNECT` log will also be
+written to `connect.log`.
+
+Each log has a minimum log level.  Only messages of that level or higher
+will be processed.  The default log level is INFO.  This can be changed
+by using the `Logger::Level(LogLevel)` method, giving it one of
+`LEVEL_TRACE`, `LEVEL_DEBUG`, `LEVEL_INFO`, `LEVEL_WARNING`, `LEVEL_ERROR`,
+or `LEVEL_FATAL`.
+
+	NETWORK.Level(easylogger::LEVEL_DEBUG);
+
+Logging any message with the level FATAL will cause the application to
+abort immediately via `std::abort()`.
+
+Finally, there is a set of assertion macros that can be used for checking
+invariants.
+
+	easylogger::Logger MAIN("MAIN");
+
+	EASY_ASSERT(MAIN, param > 42, "param must be more than 42");
+	ASSERT_EQ(MAIN, left, right, "left must be equal to right");
+	ASSERT_NE(MAIN, left, right, "left must not equal right");
+	ASSERT_TRUE(MAIN, param, "param must be true");
+	ASSERT_FALSE(MAIN, param, "param must be false");
+
+# Jenkins Docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
-
 
 ## Prerequisites
 - Linux (centos prefered) OS VM
