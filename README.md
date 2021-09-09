@@ -5,7 +5,7 @@
 
 2. Run the command with the following command
    1. `docker run -dp 3000:3000 test-app`
-3. To adjust the `port` make sur eto alrer the `package.json` along with the docker run command
+3. To adjust the `port` make sure to alter the `package.json` along with the docker run command
 
 # Jenkins in docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
@@ -37,7 +37,6 @@ This will allow us to sae our configuration of the jenkins controller and our jo
 2. Verify jenkins is in the list
    1. `helm repo add jenkinsci https://charts.jenkins.io`
    2. `helm repo update`
-   3. 
 
 ## Create docker slaves within jenkins
 ### PRerequisiute
