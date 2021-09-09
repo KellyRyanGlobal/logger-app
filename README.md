@@ -99,7 +99,10 @@ Reference https://www.jenkins.io/doc/book/installing/docker/ for more informatio
 - docker
 
 ## Install Jenkins Docker container
-The following will install a Jenkins docker container with persistant volume allowing for saved states based on the container being brought up and down
+The following will install a Jenkins docker container with persistent volume allowing for saved states based on the container being brought up and down.
+
+It is recommended to deploy the jenkins docker container within a Linux VM. For this deployment we will deploy jenkins within a docker container within a Centos VM.
+
 
 ### Prerquisite
 - Create a docker login at https://hub.docker.com
