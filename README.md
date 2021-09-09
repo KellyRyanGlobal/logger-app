@@ -7,35 +7,20 @@
    1. `docker run -dp 3000:3000 test-app`
 3. To adjust the `port` make sur eto alrer the `package.json` along with the docker run command
 
-## Jenkiins in docker image setup
+# Jenkiins in docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
 
+
+## Prerequisites
+- Linux (centos prefered) OS VM
+- pre install docker (`apt-get docker`)
+- Preinstall docker compose (`apt-get docker-compose`)
+
+## Install Jenkins
 1. Run the following in the terminal
-   1. `docker network create jenkins`
-   2. `docker run --name jenkins-docker --rm --detach --privileged --network jenkins --network-alias docker \
-      --env DOCKER_TLS_CERTDIR=/certs \
-      --volume jenkins-docker-certs:/certs/client \
-      --volume jenkins-data:/var/jenkins_home \
-      --publish 2376:2376 \
-      docker:dind \
-      --storage-driver overlay2`
-   3. `cd jenkins`
-   4. `docker build -t myjenkins-blueocean:1.1 .`
-   5. `docker run \
-      --name jenkins-blueocean \
-      --rm \
-      --detach \
-      --network jenkins \
-      --env DOCKER_HOST=tcp://docker:2376 \
-      --env DOCKER_CERT_PATH=/certs/client \
-      --env DOCKER_TLS_VERIFY=1 \
-      --publish 8080:8080 \
-      --publish 50000:50000 \
-      --volume jenkins-data:/var/jenkins_home \
-      --volume jenkins-docker-certs:/certs/client:ro
-      myjenkins-blueocean:1.1 `
-   6. Wit about 2 minutes and jenkins should be up at http://localhost:8080
-   7. 
+   1. `docker compose up`
+   2. Within about 2 minutes and jenkins should be up at http://localhost:8080
+   
    
 ## Create Persistance for jenkins
 This will allow us to sae our configuration of the jenkins controller and our jobs when we reboot minikube for jenkins.
@@ -54,7 +39,14 @@ This will allow us to sae our configuration of the jenkins controller and our jo
    2. `helm repo update`
    3. 
 
+## Create docker slaves within jenkins
+### PRerequisiute
+1. **Windows(bash)**: run the following commands
+   1. `curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-Windows-x86_64.exe > "$HOME/bin/docker-machine.exe" && \
+      chmod +x "$HOME/bin/docker-machine.exe"`
+2. **Linux**: `curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m >/tmp/docker-machine && chmod +x /tmp/docker-machine &&   sudo cp /tmp/docker-machine /usr/local/bin/docker-machine`
 
+## Create Docker slave node for jenkins      
 ### CI/CD with Auto DevOps
 
 This template is compatible with [Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/).
