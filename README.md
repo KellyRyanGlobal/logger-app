@@ -95,7 +95,7 @@ Reference https://www.jenkins.io/doc/book/installing/docker/ for more informatio
 
 ## Prerequisites
 - Linux (centos prefered) OS VM
-- pre install docker (`apt-get docker`)
+- docker
 
 ## Install Jenkins Docker container
 The following will install a Jenkins docker container with persistant volume allowing for saved states based on the container being brought up and down
