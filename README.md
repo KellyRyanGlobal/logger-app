@@ -1,4 +1,5 @@
-#Introduction
+# Introduction
+
 This is a fork version of https://github.com/elanthis/easylogger. Modifications are made for simple testing purpose of running basic testing functionality within a jenkins environment.
 
 Some of the modifications will not have to do with the logger itself, but test out things such as:
