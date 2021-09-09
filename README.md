@@ -96,31 +96,28 @@ Reference https://www.jenkins.io/doc/book/installing/docker/ for more informatio
 ## Prerequisites
 - Linux (centos prefered) OS VM
 - pre install docker (`apt-get docker`)
-- Preinstall docker compose (`apt-get docker-compose`)
 
-## Install Jenkins
-1. Run the following in the terminal
+## Install Jenkins Docker container
+The following will install a Jenkins docker container with persistant volume allowing for saved states based on the container being brought up and down
+
+### Prerquisite
+- Create a docker login at https://hub.docker.com
+
+###installation
+1. Add docker credentials for dockerhub to the environment by running the following
+   ```
+   export DOCKER_USER="<enter docker hub username>"
+   export DOCKER_PASS="<enter docker hub password>"
+   ```
+      
+2. Run the following in the terminal
    1. cd jenkins
-   2. `docker compose up`
-   3. Within about 2 minutes and jenkins should be up at http://localhost:8080
+   2. `script/jenkins.sh`
+   3. Within about 2 minutes and jenkins should 
+   4. **Browser**: navigate to http://localhost:8080
+   5. IF first time, run the following command in a terminal
+      1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
+   6. **Webpage**: Enter the `initialadminPassword` into the browser
+   7. Install Suggested plugins 
 
 
-## Create docker slaves within jenkins
-### PRerequisiute
-1. **Windows(bash)**: run the following commands
-   1. `curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-Windows-x86_64.exe > "$HOME/bin/docker-machine.exe" && \
-      chmod +x "$HOME/bin/docker-machine.exe"`
-2. **Linux**: `curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-`uname -s`-`uname -m >/tmp/docker-machine && chmod +x /tmp/docker-machine &&   sudo cp /tmp/docker-machine /usr/local/bin/docker-machine`
-
-## Create Docker slave node for jenkins      
-### CI/CD with Auto DevOps
-
-This template is compatible with [Auto DevOps](https://docs.gitlab.com/ee/topics/autodevops/).
-
-If Auto DevOps is not already enabled for this project, you can [turn it on](https://docs.gitlab.com/ee/topics/autodevops/#enabling-auto-devops) in the project settings.
-
-### Developing with Gitpod
-
-This template has a fully-automated dev setup for [Gitpod](https://docs.gitlab.com/ee/integration/gitpod.html).
-
-If you open this project in Gitpod, you'll get all Node dependencies pre-installed and Express will open a web preview.
