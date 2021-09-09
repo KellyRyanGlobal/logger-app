@@ -120,7 +120,7 @@ This will allow us to sae our configuration of the jenkins controller and our jo
    2. `helm repo update`
 
 ## Create docker slaves within jenkins
-### PRerequisiute
+### Prerequisiute
 1. **Windows(bash)**: run the following commands
    1. `curl -L https://github.com/docker/machine/releases/download/v0.16.2/docker-machine-Windows-x86_64.exe > "$HOME/bin/docker-machine.exe" && \
       chmod +x "$HOME/bin/docker-machine.exe"`
