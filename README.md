@@ -7,7 +7,7 @@
    1. `docker run -dp 3000:3000 test-app`
 3. To adjust the `port` make sur eto alrer the `package.json` along with the docker run command
 
-# Jenkiins in docker image setup
+# Jenkins in docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
 
 
