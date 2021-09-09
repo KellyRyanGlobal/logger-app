@@ -66,6 +66,13 @@ invariants.
 	ASSERT_NE(MAIN, left, right, "left must not equal right");
 	ASSERT_TRUE(MAIN, param, "param must be true");
 	ASSERT_FALSE(MAIN, param, "param must be false");
+## Build logger
+To build logger run the following command
+1. `make`
+2. Verify the test-bin is created
+3. Run the following command
+   1. g++ test.cc -o test.exe
+
 
 # Jenkins Docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
