@@ -17,6 +17,13 @@ Testing that will be performed include
 
 # Logger
 
+## Prerequisite
+The following need to be installed in order to properly build the application
+- Install gcc 
+- Install Make
+
+## Scope
+
 All classes reside in the `easylogger` namespace.
 
 There is only one primary class that the user must be aware of, which is
@@ -83,6 +90,7 @@ invariants.
 	ASSERT_NE(MAIN, left, right, "left must not equal right");
 	ASSERT_TRUE(MAIN, param, "param must be true");
 	ASSERT_FALSE(MAIN, param, "param must be false");
+
 ## Build logger
 To build logger run the following command
 1. `make`
@@ -90,13 +98,23 @@ To build logger run the following command
 3. Run the following command
    1. g++ test.cc -o test.exe
 
+### Build logger in docker
+To build logger in a docker container run the following
+1. `docker build -t logger-test .`
+2. `docker run  --rm --name logger logger-test > output.out`
+3. `cat output.out`
 
-# Jenkins Docker image setup
+# Automated Testing Environment
+The testing environment will use jenkins running in docker to deploy containers with logger running
+
+## Jenkins Docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
 
 ## Prerequisites
-- Linux (centos prefered) OS VM
-- docker
+The following needs to be pre installed on a Windows 10 workstation before proceeeding
+- Virtualbox (hypervisor)
+  - Linux (centos prefered) OS VM- installed on virtualbox with ssh connection
+    - docker- installed on the Linux VM
 
 ## Install Jenkins Docker container
 The following will install a Jenkins docker container with persistent volume allowing for saved states based on the container being brought up and down.
@@ -107,7 +125,7 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
 ### Prerequisite
 - Create a docker login at https://hub.docker.com
 
-###installation
+### Installation
 1. Add docker credentials for dockerhub to the environment by running the following
    ```
    export DOCKER_USER="<enter docker hub username>"
