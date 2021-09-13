@@ -154,7 +154,7 @@ To build logger locally in your workstation, run the following command
 To build logger in a docker container run the following
 1. `docker build -t logger-test .`
 2. `docker run  --rm --name logger logger-test > output.out`
-3. `cat output.out`
+3. `cat output.out` test
 
 
 
