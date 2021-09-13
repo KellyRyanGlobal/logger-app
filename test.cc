@@ -1,4 +1,7 @@
 #include "easylogger.h"
+#include "template_functions.h"
+
+using namespace std;
 
 static easylogger::Logger TEST("TEST");
 static easylogger::Logger NETWORK("NETWORK");
@@ -18,6 +21,13 @@ static void test2() {
 	LOG_DEBUG(NETWORK, "network");
 }
 
+static void test3() {
+	// add ints
+	int a = 10, b = 20, result;
+    result = sum <int> (a, b);
+    LOG_INFO(TEST,  a << " + " << b << " = " << result);
+}
+
 int main() {
 	SUB.Level(easylogger::LEVEL_WARNING);
 	NETWORK.Format("[%F:%C %P] %N: %S");
@@ -28,11 +38,13 @@ int main() {
 
 	test1();
 	test2();
+	test3();
 
 	LOG_INFO(SUB, "info!");
 	LOG_ERROR(SUB, "error!");
 	//LOG_FATAL(TEST, "dead");
 	//LOG_ERROR(TEST, "won't see me");
-    char c = getchar();
+
+ 	char c = getchar();
 	return 0;
 }
