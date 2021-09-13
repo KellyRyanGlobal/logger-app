@@ -130,7 +130,7 @@ The following needs to be pre installed on a Windows 10 workstation  before proc
 - - Linux (CentOS prefered) OS VM image
 
 ### Virtualbox Prerequisite
-The following need to be installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
+The following need to be installed on the Linux OS VM that is installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
 - doxygen - for building logger
 - Install g++ and gcc
 - Install Make
