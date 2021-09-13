@@ -127,21 +127,23 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
 The following needs to be pre installed on a Windows 10 workstation before proceeding
 - Virtualbox (hypervisor)
     - Linux (centos prefered) OS VM- installed on virtualbox with ssh connection
-        - docker- installed on the Linux VM
-        - doxygen - for building logger
-- Install gcc
+        - docker - installed on the Linux VM
+- doxygen - for building logger
+- Install g++ and gcc
 - Install Make
 - Create a docker login at https://hub.docker.com
 
-## Build logger
-To build logger run the following command
+## Build logger in localhost
+
+To build logger locally in your workstation, run the following command
 1. `make`
 2. Verify the test-bin is created
 3. Run the following command
-    1. g++ test.cc -o test.exe
+    1. `g++ test.cc -o test.exe`
     
 
-### Build logger in docker
+## Build logger in docker
+
 To build logger in a docker container run the following
 1. `docker build -t logger-test .`
 2. `docker run  --rm --name logger logger-test > output.out`
