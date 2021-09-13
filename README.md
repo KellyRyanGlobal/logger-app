@@ -84,9 +84,46 @@ invariants.
 	ASSERT_TRUE(MAIN, param, "param must be true");
 	ASSERT_FALSE(MAIN, param, "param must be false");
 
-# Environment and Testing
 
+# Automated Testing Environment
+The testing environment will use jenkins running in docker to deploy containers with logger running
 The following instructions will guide the user/tester to build and deploy the application within a local environment or a container.
+
+
+## Jenkins Docker image setup
+Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
+
+## Install Jenkins Docker container
+The following will install a Jenkins docker container with persistent volume allowing for saved states based on the container being brought up and down.
+
+It is recommended to deploy the jenkins docker container within a Linux VM. For this deployment we will deploy jenkins within a docker container within a Centos VM.
+
+
+### Installation
+1. Add docker credentials for dockerhub to the environment by running the following
+   ```
+   export DOCKER_USER="<enter docker hub username>"
+   export DOCKER_PASS="<enter docker hub password>"
+   ```
+
+2. Run the following in the terminal
+    1. **Localhost**: Open a terminal and SSH to the VM using the following command
+        1. `ssh <username>@<IP of VM>`
+    2. **VM TERMINAL**: Run the following command
+        1. `git clone git@github.com:KellyRyanGlobal/testing-app.git`
+    3. **VM TERMINAL**: Navigate to the cloned repo for `testing-app`
+    4. **VM TERMINAL**: `cd jenkins`
+    5. **VM TERMINAL**:`script/jenkins.sh`
+    6. Within about 2 minutes and jenkins should
+    7. **Local host**: Open a browaser
+    8. **Browser**: navigate to http://<VM IP>:8080
+    9. If it is the first time, run the following command in a terminal
+        1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
+    10. **Webpage**: Enter the `initialadminPassword` into the browser
+    11. Install Suggested plugins
+
+
+
 
 ## Build logger
 To build logger run the following command
@@ -111,44 +148,6 @@ To build logger in a docker container run the following
 1. `docker build -t logger-test .`
 2. `docker run  --rm --name logger logger-test > output.out`
 3. `cat output.out`
-
-# Automated Testing Environment
-The testing environment will use jenkins running in docker to deploy containers with logger running
-
-## Jenkins Docker image setup
-Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
-
-## Install Jenkins Docker container
-The following will install a Jenkins docker container with persistent volume allowing for saved states based on the container being brought up and down.
-
-It is recommended to deploy the jenkins docker container within a Linux VM. For this deployment we will deploy jenkins within a docker container within a Centos VM.
-
-
-
-### Installation
-1. Add docker credentials for dockerhub to the environment by running the following
-   ```
-   export DOCKER_USER="<enter docker hub username>"
-   export DOCKER_PASS="<enter docker hub password>"
-   ```
-      
-2. Run the following in the terminal
-   1. **Localhost**: Open a terminal and SSH to the VM using the following command
-      1. `ssh <username>@<IP of VM>`
-   2. **VM TERMINAL**: Run the following command
-      1. `git clone git@github.com:KellyRyanGlobal/testing-app.git`
-   3. **VM TERMINAL**: Navigate to the cloned repo for `testing-app`
-   4. **VM TERMINAL**: `cd jenkins`
-   5. **VM TERMINAL**:`script/jenkins.sh`
-   6. Within about 2 minutes and jenkins should 
-   7. **Local host**: Open a browaser
-   8. **Browser**: navigate to http://<VM IP>:8080
-   9. If it is the first time, run the following command in a terminal
-      1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
-   10. **Webpage**: Enter the `initialadminPassword` into the browser
-   11. Install Suggested plugins 
-
-
 
 
 
