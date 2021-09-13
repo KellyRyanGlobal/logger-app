@@ -142,9 +142,10 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
 ## Build logger in localhost
 
 To build logger locally in your workstation, run the following command
-1. `make`
-2. Verify the test-bin is created
-3. Run the following command
+1. `cd src`
+2. `make`
+3. Verify the test-bin is created
+4. Run the following command
     1. `g++ test.cc -o test.exe`
     
 

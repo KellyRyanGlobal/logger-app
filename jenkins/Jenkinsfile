@@ -1,13 +1,13 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'node:14-alpine' }
+    }
     environment {
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASS = credentials('docker-password')
         APP_NAME = 'test_app'
         VERSION = '1.0'
     }
-
     stages {
       stage('Build Test_App') {
           steps {
