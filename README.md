@@ -89,6 +89,24 @@ invariants.
 The testing environment will use jenkins running in docker to deploy containers with logger running
 The following instructions will guide the user/tester to build and deploy the application within a local environment or a container.
 
+# Prerequisite
+
+## Prerequisites Windows
+
+The following needs to be pre installed on a Windows 10 workstation  before proceeding. How to install the services are outside of the scope of this README.
+
+- Virtualbox (hypervisor)- See Virtualbox Prerequisite
+- - Linux (CentOS prefered) OS VM image
+
+### Virtualbox Prerequisite
+The following need to be installed on the Linux OS VM that is installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
+- doxygen - for building logger
+- Install g++ and gcc
+- Install Make
+- Create a docker login at https://hub.docker.com
+- **sshkeygen**- for ssh connection
+- **docker**- for building containers
+
 
 ## Jenkins Docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
@@ -97,7 +115,6 @@ Reference https://www.jenkins.io/doc/book/installing/docker/ for more informatio
 The following will install a Jenkins docker container with persistent volume allowing for saved states based on the container being brought up and down.
 
 It is recommended to deploy the jenkins docker container within a Linux VM. For this deployment we will deploy jenkins within a docker container within a Centos VM.
-
 
 ### Installation
 1. Add docker credentials for dockerhub to the environment by running the following
@@ -121,23 +138,6 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
         1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
     10. **Webpage**: Enter the `initialadminPassword` into the browser
     11. Install Suggested plugins
-
-## Prerequisites Windows
-
-The following needs to be pre installed on a Windows 10 workstation  before proceeding. How to install the services are outside of the scope of this README.
-
-- Virtualbox (hypervisor)- See Virtualbox Prerequisite
-- - Linux (CentOS prefered) OS VM image
-
-### Virtualbox Prerequisite
-The following need to be installed on the Linux OS VM that is installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
-- doxygen - for building logger
-- Install g++ and gcc
-- Install Make
-- Create a docker login at https://hub.docker.com
-- **sshkeygen**- for ssh connection
-- **docker**- for building containers
-
 
 ## Build logger in localhost
 
