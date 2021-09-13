@@ -1,4 +1,7 @@
 #include "easylogger.h"
+#include "template_functions.cpp"
+
+using namespace std;
 
 static easylogger::Logger TEST("TEST");
 static easylogger::Logger NETWORK("NETWORK");
@@ -29,10 +32,15 @@ int main() {
 	test1();
 	test2();
 
+	// add ints
+	int a = 10, b = 20, result;
+    result = sum <int> (a, b);
+    LOG_INFO(TEST, "result = " << result);
+
 	LOG_INFO(SUB, "info!");
 	LOG_ERROR(SUB, "error!");
 	//LOG_FATAL(TEST, "dead");
 	//LOG_ERROR(TEST, "won't see me");
-
+ 	char c = getchar();
 	return 0;
 }
