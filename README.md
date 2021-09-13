@@ -124,14 +124,20 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
 
 ## Prerequisites
 
-The following needs to be pre installed on a Windows 10 workstation before proceeding
-- Virtualbox (hypervisor)
-    - Linux (centos prefered) OS VM- installed on virtualbox with ssh connection
-        - docker - installed on the Linux VM
+The following needs to be pre installed on a Windows 10 workstation before proceeding. How to install the services are outside of the scope of this README.
+
+- Virtualbox (hypervisor)- See Virtualbox Prerequisite
 - doxygen - for building logger
 - Install g++ and gcc
 - Install Make
 - Create a docker login at https://hub.docker.com
+
+### Virtualbox Prerequisite
+The following need to be installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
+- Linux (CentOS prefered) OS VM image
+  - **sshkeygen**- for ssh connection
+  - **docker**- for building containers
+
 
 ## Build logger in localhost
 
