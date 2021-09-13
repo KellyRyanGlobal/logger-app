@@ -15,14 +15,7 @@ Testing that will be performed include
 - **Acceptance testing**- Verifying the output of logic is what is expectec based on requirements
   - Verifying logic is correct
 
-# Logger
-
-## Prerequisite
-The following need to be installed in order to properly build the application
-- Install gcc 
-- Install Make
-
-## Scope
+# About Logger
 
 All classes reside in the `easylogger` namespace.
 
@@ -91,12 +84,27 @@ invariants.
 	ASSERT_TRUE(MAIN, param, "param must be true");
 	ASSERT_FALSE(MAIN, param, "param must be false");
 
+# Environment and Testing
+
+The following instructions will guide the user/tester to build and deploy the application within a local environment or a container.
+
 ## Build logger
 To build logger run the following command
 1. `make`
 2. Verify the test-bin is created
 3. Run the following command
-   1. g++ test.cc -o test.exe
+    1. g++ test.cc -o test.exe
+
+## Prerequisites
+
+The following needs to be pre installed on a Windows 10 workstation before proceeding
+- Virtualbox (hypervisor)
+    - Linux (centos prefered) OS VM- installed on virtualbox with ssh connection
+        - docker- installed on the Linux VM
+- Install gcc 
+- Install Make
+- Create a docker login at https://hub.docker.com
+
 
 ### Build logger in docker
 To build logger in a docker container run the following
@@ -110,20 +118,12 @@ The testing environment will use jenkins running in docker to deploy containers 
 ## Jenkins Docker image setup
 Reference https://www.jenkins.io/doc/book/installing/docker/ for more information
 
-## Prerequisites
-The following needs to be pre installed on a Windows 10 workstation before proceeeding
-- Virtualbox (hypervisor)
-  - Linux (centos prefered) OS VM- installed on virtualbox with ssh connection
-    - docker- installed on the Linux VM
-
 ## Install Jenkins Docker container
 The following will install a Jenkins docker container with persistent volume allowing for saved states based on the container being brought up and down.
 
 It is recommended to deploy the jenkins docker container within a Linux VM. For this deployment we will deploy jenkins within a docker container within a Centos VM.
 
 
-### Prerequisite
-- Create a docker login at https://hub.docker.com
 
 ### Installation
 1. Add docker credentials for dockerhub to the environment by running the following
