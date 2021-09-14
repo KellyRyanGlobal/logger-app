@@ -91,15 +91,17 @@ The following instructions will guide the user/tester to build and deploy the ap
 
 # Prerequisite
 
-## Prerequisites Windows
+The prerequisites below require installation before deploying the application. For deployments Virtual box will run using CentOS that is deployed on a Windows 10 workstation.
+
+##  Windows
 
 The following needs to be pre installed on a Windows 10 workstation  before proceeding. How to install the services are outside of the scope of this README.
 
 - Virtualbox (hypervisor)- See Virtualbox Prerequisite
 - - Linux (CentOS prefered) OS VM image
 
-### Virtualbox Prerequisite
-The following need to be installed on the Linux OS VM that is installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
+### Virtualbox 
+The following needs to be installed on the Linux OS VM that is installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
 - doxygen - for building logger
 - Install g++ and gcc
 - Install Make
