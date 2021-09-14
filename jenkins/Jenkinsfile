@@ -9,8 +9,8 @@ pipeline {
         VERSION = '1.0'
     }
     stages {
-      agent any
       stage('Docker Build Test_App') {
+          agent any
           steps {
               sh 'docker build -t test_app:latest -f Dockerfile .'
           }
