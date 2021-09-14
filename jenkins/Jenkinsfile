@@ -11,9 +11,8 @@ pipeline {
     stages {
       stage('Build Test_App') {
           steps {
-              sh '''make'''
-              sh '''g++ test.cc -o ${APP_NAME}.exe'''
-              sh '''chmod +x ${APP_NAME}.exe'''
+              sh '''sudo apt add docker'''
+              sh '''docker build -t ${APP_NAME}:latest -f Dockerfile .'''
           }
         }
         }
