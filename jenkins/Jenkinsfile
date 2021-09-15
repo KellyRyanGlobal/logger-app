@@ -11,8 +11,8 @@ pipeline {
     stages {
         stage('Docker Build Test_App') {
             steps {
-                sh 'sudo apk update && install docker'
-                sh 'sudo service docker start'
+                sh 'apk update && install docker'
+                sh 'service docker start'
                 sh 'docker build -t test_app:latest -f Dockerfile .'
             }
         }
