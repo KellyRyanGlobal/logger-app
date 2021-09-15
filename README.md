@@ -133,7 +133,7 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
     3. **VM TERMINAL**: Navigate to the cloned repo for `testing-app`
     4. **VM TERMINAL**: `cd jenkins`
     5. **VM TERMINAL**:`script/jenkins.sh`
-    6. Within about 2 minutes and jenkins should
+    6. Wait about 2 minutes and jenkins should be up
     7. **Local host**: Open a browaser
     8. **Browser**: navigate to http://<VM IP>:8080
     9. If it is the first time, run the following command in a terminal
