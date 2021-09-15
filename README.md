@@ -12,7 +12,7 @@ The logging will help provide information based on these events occurring.
 Testing that will be performed include
 - **Functional testing**- verifying the application is working as intended based predefined circumstance
    - Positive and negative- Testing based on assertions of input 
-- **Acceptance testing**- Verifying the output of logic is what is expectec based on requirements
+- **Acceptance testing**- Verifying the output of logic is what is expected based on requirements
   - Verifying logic is correct
 
 # About Logger
@@ -134,10 +134,10 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
     6. Within about 2 minutes and jenkins should
     7. **Local host**: Open a browaser
     8. **Browser**: navigate to http://<VM IP>:8080
-    9. If it is the first time, run the following command in a terminal
-        1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
-    10. **Webpage**: Enter the `initialadminPassword` into the browser
-    11. Install Suggested plugins
+       1. If it is the first time, run the following command in a terminal
+           1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
+       2. **Webpage**: Enter the `initialadminPassword` into the browser
+    9.  **Browser**: Install Suggested plugins
 
 ## Build logger in localhost
 
