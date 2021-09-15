@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Docker Build Test_App') {
             agent {
-                    docker { image 'node:14-alpine' }
+                    docker { image 'alpine:latest' }
                 }
             steps {
                 sh 'apk update && install docker'
