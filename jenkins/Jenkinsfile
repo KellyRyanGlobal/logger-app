@@ -12,6 +12,8 @@ pipeline {
                     docker { image 'node:14-alpine' }
                 }
             steps {
+                sh 'apk update && install docker'
+                sh 'service docker start'
                 sh 'docker build -t test_app:latest -f Dockerfile .'
             }
         }
