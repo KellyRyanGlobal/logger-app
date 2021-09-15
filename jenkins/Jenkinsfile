@@ -8,10 +8,11 @@ pipeline {
         APP_NAME = 'test_app'
         VERSION = '1.0'
     }
-
     stages {
         stage('Docker Build Test_App') {
-            agent any
+            agent {
+                    docker { image 'alpine:latest' }
+                }
             steps {
                 sh 'docker build -t test_app:latest -f Dockerfile .'
             }
