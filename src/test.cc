@@ -91,7 +91,6 @@ int main(int argc , char *argv[]) {
 	LOG_ERROR(SUB, "error!");
 	//LOG_FATAL(TEST, "dead");
 	//LOG_ERROR(TEST, "won't see me");
-
  	char c = getchar();
 	return 0;
 }
