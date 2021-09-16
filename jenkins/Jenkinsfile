@@ -8,14 +8,12 @@ pipeline {
     }
     stages {
         stage('Docker Build Test_App') {
-            agent { dockerfile true }
             steps {
                 sh 'ls'
                 stash includes: '${APP_NAME}.exe', name: 'test'
             }
         }
         stage('Test out stash') {
-            agent { dockerfile true }
             steps {
                 sh 'echo "unstash ${APP_NAME}"'
                 unstash 'test'
