@@ -1,5 +1,5 @@
 pipeline {
-    agent { dockerfile true }
+    agent none
     environment {
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASS = credentials('docker-password')
@@ -8,6 +8,8 @@ pipeline {
     }
     stages {
         stage('Docker Build Test_App') {
+            agent { dockerfile true
+                }
             steps {
                 sh 'ls'
                 sh 'pwd'
@@ -15,6 +17,8 @@ pipeline {
             }
         }
         stage('Test out stash') {
+            agent { dockerfile true
+                }
             steps {
                 sh 'echo "unstash ${APP_NAME}"'
                 unstash 'test'
