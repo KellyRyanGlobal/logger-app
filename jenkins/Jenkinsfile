@@ -10,7 +10,15 @@ pipeline {
         stage('Docker Build Test_App') {
             steps {
                 sh 'ls'
+                stash includes: '${APP_NAME}.exe', name: '${APP_NAME}'
+            }
+        }
+        stage('Test out stash') {
+            steps {
+                unstash '${APP_NAME}'
+                sh './${APP_NAME}.exe'
             }
         }
     }
+
 }
