@@ -5,4 +5,4 @@ COPY /src /app
 WORKDIR /app
 RUN make
 RUN g++ test.cc -o test_app.exe
-CMD ./test.exe
+CMD ./test_app.exe

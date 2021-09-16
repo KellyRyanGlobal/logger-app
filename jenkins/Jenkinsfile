@@ -15,6 +15,7 @@ pipeline {
         }
         stage('Test out stash') {
             steps {
+                sh 'echo "unstash ${APP_NAME}"'
                 unstash '${APP_NAME}'
                 sh './${APP_NAME}.exe'
             }
