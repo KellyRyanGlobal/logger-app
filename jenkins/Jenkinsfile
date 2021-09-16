@@ -10,6 +10,7 @@ pipeline {
         stage('Docker Build Test_App') {
             steps {
                 sh 'ls'
+                sh 'pwd'
                 stash includes: '${APP_NAME}.exe', name: 'test'
             }
         }
