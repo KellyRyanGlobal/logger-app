@@ -13,7 +13,6 @@ pipeline {
             steps {
                 sh 'docker container ls'
                 sh 'docker image ls'
-                stash includes: '${APP_NAME}.exe', name: 'test'
             }
         }
     }
