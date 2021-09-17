@@ -1,4 +1,5 @@
 pipeline {
+    agent none
     environment {
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASS = credentials('docker-password')
