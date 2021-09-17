@@ -91,15 +91,17 @@ The following instructions will guide the user/tester to build and deploy the ap
 
 # Prerequisite
 
-## Prerequisites Windows
+The prerequisites below require installation before deploying the application. For deployments Virtual box will run using CentOS that is deployed on a Windows 10 workstation.
+
+##  Windows
 
 The following needs to be pre installed on a Windows 10 workstation  before proceeding. How to install the services are outside of the scope of this README.
 
 - Virtualbox (hypervisor)- See Virtualbox Prerequisite
 - - Linux (CentOS prefered) OS VM image
 
-### Virtualbox Prerequisite
-The following need to be installed on the Linux OS VM that is installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
+### Virtualbox 
+The following needs to be installed on the Linux OS VM that is installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
 - doxygen - for building logger
 - Install g++ and gcc
 - Install Make
@@ -131,7 +133,7 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
     3. **VM TERMINAL**: Navigate to the cloned repo for `testing-app`
     4. **VM TERMINAL**: `cd jenkins`
     5. **VM TERMINAL**:`script/jenkins.sh`
-    6. Within about 2 minutes and jenkins should
+    6. Wait about 2 minutes and jenkins should be up
     7. **Local host**: Open a browaser
     8. **Browser**: navigate to http://<VM IP>:8080
        1. If it is the first time, run the following command in a terminal
@@ -142,9 +144,10 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
 ## Build logger in localhost
 
 To build logger locally in your workstation, run the following command
-1. `make`
-2. Verify the test-bin is created
-3. Run the following command
+1. `cd src`
+2. `make`
+3. Verify the test-bin is created
+4. Run the following command
     1. `g++ test.cc -o test.exe`
     
 
@@ -153,7 +156,7 @@ To build logger locally in your workstation, run the following command
 To build logger in a docker container run the following
 1. `docker build -t logger-test .`
 2. `docker run  --rm --name logger logger-test > output.out`
-3. `cat output.out`
+3. `cat output.out` test
 
 
 
