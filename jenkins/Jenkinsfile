@@ -8,15 +8,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-            sh '''
-            docker build -t ${APP_NAME} .
-            '''
+                sh '''
+                docker build -t ${APP_NAME} .
+                '''
+            }
         }
         stage('Test') {
-            sh '''
-            docker run -it --rm --name test1 test-alpine:latest
-            ./test.exe
-            '''
+            steps {
+                sh '''
+                docker run -it --rm --name test1 test-alpine:latest
+                ./test.exe
+                '''
+            }
         }
      }
 }
