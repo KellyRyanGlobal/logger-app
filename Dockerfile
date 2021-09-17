@@ -7,5 +7,5 @@ WORKDIR /app
 RUN make
 EXPOSE 4200
 ENTRYPOINT ["/app"]
-RUN g++ test.cc -o test_app.exe \
-  ./test_app.exe
+RUN g++ test.cc -o test_app.exe
+RUN ./test_app.exe
