@@ -5,21 +5,13 @@ node {
         APP_NAME = 'test_app'
         VERSION = '1.0'
     }
-    stage('trying out custom thing') {
-
+    stage('Build ') {
         checkout scm
+        # Build using docker command
         def testimage = docker.build('test-alpine', ".")
         testimage.inside {
-            sh 'ls'
+            sh 'ls src/'
          }
-    }
-    stage('Docker Build Test_App') {
-        agent { dockerfile true }
-        steps {
-            sh 'uname -a'
-            sh './test.exe'
-        }
-
     }
 }
 
