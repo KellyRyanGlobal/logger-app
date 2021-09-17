@@ -8,8 +8,9 @@ node {
     stage('Build') {
         checkout scm
         def testimage = docker.build('test-alpine', ".")
-        testimage.inside {
-            sh 'ls src/'
-         }
+    }
+    stage('Test') {
+        sh 'docker run -it --rm --name test1 test-alpine:latest ash'
+        sh 'ls'
     }
 }
