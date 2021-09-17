@@ -11,7 +11,7 @@ pipeline {
             agent { dockerfile true }
             steps {
                 sh 'uname -a'
-                sh 'docker'
+                sh './test.exe'
             }
         }
     }
