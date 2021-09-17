@@ -1,4 +1,4 @@
-FROM node:12-alpine as node
+FROM node:12-alpine
 RUN apk update && apk add doxygen
 RUN apk add g++ make
 COPY /src /app
