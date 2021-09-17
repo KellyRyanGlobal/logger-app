@@ -17,8 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                docker run -v /var/run/docker.sock:/var/run/docker.sock ...
-                docker run -it --rm --name test1 test-alpine:latest
+                docker exec -it --rm --name test1 test-alpine:latest
                 ./test.exe
                 '''
             }
