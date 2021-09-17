@@ -17,8 +17,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                docker exec -it --name test1 test-alpine:latest
-                ./test.exe
+                docker run --name test1 ${APP_NAME}:latest
+                docker logs test1
                 '''
             }
         }
