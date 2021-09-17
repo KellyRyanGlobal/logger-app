@@ -8,7 +8,7 @@ node {
     stage('trying out custom thing') {
 
         checkout scm
-        def testimage = docker.build('test-alpine', "Dockerfile")
+        def testimage = docker.build('test-alpine', ".")
         testimage.inside {
             ash 'ls'
          }
