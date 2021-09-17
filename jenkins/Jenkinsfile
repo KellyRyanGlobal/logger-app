@@ -11,18 +11,9 @@ pipeline {
             agent { dockerfile true
                 }
             steps {
-                sh 'ls'
-                sh 'pwd'
+                sh 'docker container ls'
+                sh 'docker image ls'
                 stash includes: '${APP_NAME}.exe', name: 'test'
-            }
-        }
-        stage('Test out stash') {
-            agent { dockerfile true
-                }
-            steps {
-                sh 'echo "unstash ${APP_NAME}"'
-                unstash 'test'
-                sh './${APP_NAME}.exe'
             }
         }
     }
