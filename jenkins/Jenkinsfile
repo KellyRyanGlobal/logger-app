@@ -8,12 +8,9 @@ pipeline {
     }
     stages {
         stage('Docker Build Test_App') {
-            agent { dockerfile true
-                reusenode true
-                }
+            agent { dockerfile true }
             steps {
-                sh 'docker container ls'
-                sh 'docker image ls'
+                sh 'uname -a'
             }
         }
     }
