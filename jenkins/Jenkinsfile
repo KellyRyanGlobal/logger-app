@@ -12,5 +12,11 @@ node {
             sh 'ls src/'
          }
     }
+    stage('Test') {
+        docker.image('test-alpine:latest') {
+        sh 'ls'
+        sh './test_app.exe'
+        }
+    }
 }
 
