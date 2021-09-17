@@ -10,7 +10,7 @@ node {
         checkout scm
         def testimage = docker.build('test-alpine', ".")
         testimage.inside {
-            ash 'ls'
+            sh 'ls'
          }
     }
     stage('Docker Build Test_App') {
