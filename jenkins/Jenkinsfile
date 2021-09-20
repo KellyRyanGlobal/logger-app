@@ -10,15 +10,15 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                docker build -t ${APP_NAME} .
+                docker-compose up
                 '''
             }
         }
         stage('Test') {
             steps {
                 sh '''
-                docker run --name test1 ${APP_NAME}:latest
-                docker logs test1
+                docker exec logger sh -c "./test_app.exe" > output.out
+                cat output.out
                 '''
             }
         }
