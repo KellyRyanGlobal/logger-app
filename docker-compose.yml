@@ -5,5 +5,3 @@ services:
     container_name: alpine
     privileged: true
     user: root
-    networks:
-      - jenkins
