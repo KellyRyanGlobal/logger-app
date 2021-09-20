@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { dockerfile true}
     environment {
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASS = credentials('docker-password')
@@ -8,7 +8,6 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent any
             steps {
                 sh '''
                 apt-get update && install docker-compose docker
@@ -17,7 +16,6 @@ pipeline {
             }
         }
         stage('Test') {
-            agent any
             steps {
                 sh '''
                 docker exec logger sh -c "./test_app.exe" > output.out
