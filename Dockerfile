@@ -1,4 +1,5 @@
 FROM node:12-alpine
+ENTRYPOINT ["tail", "-f", "/dev/null"]
 RUN apk update && apk add doxygen
 RUN apk add g++ make
 COPY /src /app
