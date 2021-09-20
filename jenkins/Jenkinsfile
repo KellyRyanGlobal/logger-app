@@ -8,14 +8,16 @@ pipeline {
     }
     stages {
         stage('Build') {
+            agent any
             steps {
                 sh '''
-                apk update && add docker-compose docker
+                apt-get update && install docker-compose docker
                 docker-compose up
                 '''
             }
         }
         stage('Test') {
+            agent any
             steps {
                 sh '''
                 docker exec logger sh -c "./test_app.exe" > output.out
