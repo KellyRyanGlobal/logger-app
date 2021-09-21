@@ -16,8 +16,10 @@ pipeline {
                 sh '''
                 make -C src
                 ls -l
+                pwd
                 chmod +x build.sh
-                ./build.sh 
+                ls -l
+                build.sh 
                 '''
             }
         }

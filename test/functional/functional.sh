@@ -30,7 +30,7 @@ log_failure() {
  printf "${RED}❌ %s${NORMAL}\n" "$@" >&2
 }
 
-function not_empty() {
+not_empty() {
     count=0
     # count the amount of lines logged
     if [[ -z $1 ]]; then
@@ -43,7 +43,7 @@ function not_empty() {
     fi        
 }
 
-function network_test() {
+network_test() {
 
     echo "check if network logging exists"
     check=0    
@@ -64,10 +64,11 @@ function network_test() {
     fi
 }
 
-function main() {
+main() {
 
     echo "reading in $1 "
-    readarray -t results < $1
+    IFS=$'\r\n' command eval 'results=($(cat $1))'
+
     echo "Check if not null"
     not_empty $results
     echo "Check for network_test"

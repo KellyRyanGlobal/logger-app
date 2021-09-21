@@ -3,4 +3,5 @@
 *.exe
 *.bin
 .idea
-*bin
+easylogger
+template_functions

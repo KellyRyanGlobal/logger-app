@@ -1,6 +1,5 @@
-FROM node:12-alpine AS Build
+FROM alpine:latest AS Build
 ENTRYPOINT ["tail", "-f", "/dev/null"]
-RUN apk update && apk add doxygen docker 
-RUN apk add g++ make
+RUN apk update && apk add doxygen g++ make bash
 COPY . /app
 WORKDIR /app
