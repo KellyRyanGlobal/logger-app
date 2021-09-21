@@ -151,12 +151,15 @@ To build logger locally in your workstation, run the following command
     1. `g++ test.cc -o test.exe`
     
 
-## Build logger in docker
+## Build logger in docker local docker container
 
 To build logger in a docker container run the following
 1. `docker-compose up`
 2. `docker exec logger sh -c "./test_app.exe" > output.out`
 3. `cat output.out`
+4. Verify the contents of the output
+
+
 
 
 
