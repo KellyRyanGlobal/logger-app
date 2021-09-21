@@ -1,12 +1,20 @@
 pipeline {
-    agent { dockerfile true
-        reuse true}
-    environment {
-        DOCKER_USER = credentials('docker-username')
-        DOCKER_PASS = credentials('docker-password')
-    }
+    agent any
+    
     stages {
         stage('Build') {
+            agent {
+                docker { 
+                     dockerfile true
+                     reuse true
+                }
+            }
+            environment {
+
+                DOCKER_USER = credentials('docker-username')
+                DOCKER_PASS = credentials('docker-password')
+            }
+            
             steps {
                 sh '''
                 make -C src
