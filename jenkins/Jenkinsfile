@@ -3,10 +3,8 @@ pipeline {
     
     stages {
         stage('Build') {
-            agent {
-                docker { 
-                     dockerfile true
-                }
+            agent { 
+                dockerfile true               
             }
             environment {
 
