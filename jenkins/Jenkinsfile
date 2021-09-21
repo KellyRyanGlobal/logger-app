@@ -15,13 +15,15 @@ pipeline {
             steps {
                 sh '''
                 make -C src
-                ./build.sh > output.out
+                chmod +x build.sh
+                ./build.sh 
                 '''
             }
         }
         stage('Test') {
             steps {
                 sh '''
+                chmod +x test/functional/functional.s
                 test/functional/functional.sh
                 '''
             }
