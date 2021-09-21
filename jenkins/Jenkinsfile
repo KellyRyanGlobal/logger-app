@@ -23,6 +23,8 @@ pipeline {
         stage('Functional Test') {
             steps {
                 sh '''
+                chmod +x build.sh
+                ./build.sh > output.out
                 chmod +x test/functional/functional.sh
                 test/functional/functional.sh output.out
                 '''
