@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh '''
                 make -C src
+                ls -l
                 chmod +x build.sh
                 ./build.sh 
                 '''
