@@ -108,6 +108,7 @@ The following needs to be installed on the Linux OS VM that is installed on virt
 - Create a docker login at https://hub.docker.com
 - **sshkeygen**- for ssh connection
 - **docker**- for building containers
+- **docker-compose**- for creating layered containers
 
 
 ## Jenkins Docker image setup
