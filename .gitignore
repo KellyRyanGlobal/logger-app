@@ -1,1 +1,8 @@
 .vscode/
+*.out
+*.exe
+*.bin
+.idea
+src/html
+easylogger
+template_functions

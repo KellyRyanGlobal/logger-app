@@ -108,6 +108,7 @@ The following needs to be installed on the Linux OS VM that is installed on virt
 - Create a docker login at https://hub.docker.com
 - **sshkeygen**- for ssh connection
 - **docker**- for building containers
+- **docker-compose**- for creating layered containers
 
 
 ## Jenkins Docker image setup
@@ -151,12 +152,15 @@ To build logger locally in your workstation, run the following command
     1. `g++ test.cc -o test.exe`
     
 
-## Build logger in docker
+## Build logger in local docker container
 
 To build logger in a docker container run the following
-1. `docker build -t logger-test .`
-2. `docker run  --rm --name logger logger-test > output.out`
-3. `cat output.out` test
+1. `docker-compose up`
+2. `docker exec logger sh -c "./test_app.exe" > output.out`
+3. `cat output.out`
+4. Verify the contents of the output
+
+
 
 
 
