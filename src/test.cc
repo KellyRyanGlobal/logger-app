@@ -48,13 +48,6 @@ void host_test(int hostname) { //This function returns host name for
    }
 }
 
-void check_host_entry(struct hostent * hostentry) { //find host info from
-
-   if (hostentry == NULL) {
-      perror("gethostbyname");
-      exit(1);
-   }
-}
 void IP_formatter(char *IPbuffer) { //convert IP string to dotted decimal
 
    if (NULL == IPbuffer) {
@@ -68,7 +61,6 @@ int main(int argc , char *argv[]) {
     char host[256];
     char output[12] = "hostname: ";
     char *IP;
-    struct hostent *host_entry;
     int hostname;
 
 	SUB.Level(easylogger::LEVEL_WARNING);
