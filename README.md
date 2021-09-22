@@ -97,11 +97,11 @@ The prerequisites below require installation before deploying the application. F
 
 The following needs to be pre installed on a Windows 10 workstation  before proceeding. How to install the services are outside of the scope of this README.
 
-- Virtualbox (hypervisor)- See Virtualbox Prerequisite
+- VirtualBox (hypervisor)- See VirtualBox Prerequisite
 - - Linux (CentOS prefered) OS VM image
 
-### Virtualbox 
-The following needs to be installed on the Linux OS VM that is installed on virtualbox. The installation of how to install the OS is outside of the scope of this readme.
+### VirtualBox 
+The following needs to be installed on the Linux OS VM that is installed on VirtualBox. The installation of how to install the OS is outside of the scope of this readme.
 - doxygen - for building logger
 - Install g++ and gcc
 - Install Make
@@ -135,7 +135,7 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
     4. **VM TERMINAL**: `cd jenkins`
     5. **VM TERMINAL**:`script/jenkins.sh`
     6. Wait about 2 minutes and jenkins should be up
-    7. **Local host**: Open a browaser
+    7. **Local host**: Open a browser
     8. **Browser**: navigate to http://<VM IP>:8080
        1. If it is the first time, run the following command in a terminal
            1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
