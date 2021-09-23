@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-source $HOME/testing-app/test/common.sh
+set -e
+set -o pipefail
+
+source test/common.sh
 
 TEST_CHECK=0
 
@@ -19,7 +22,7 @@ main () {
     logging_test $name
 
 
-     if [[ "$TEST_CHECK" -gt "0" ]]; then
+    if [[ "$TEST_CHECK" -gt "0" ]]; then
         echo " Test had $TEST_CHECK Failures"
         return 1
     else
