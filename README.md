@@ -119,6 +119,7 @@ The following will install a Jenkins docker container with persistent volume all
 
 It is recommended to deploy the jenkins docker container within a Linux VM. For this deployment we will deploy jenkins within a docker container within a Centos VM.
 
+
 ### Installation
 1. Add docker credentials for dockerhub to the environment by running the following
    ```
@@ -141,6 +142,12 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
            1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
        2. **Webpage**: Enter the `initialadminPassword` into the browser
     9.  **Browser**: Install Suggested plugins
+    
+### Jenkins Plugins
+Install plugins within the jenkins dashboard after installation. These help with managment of testing results
+- Install the recommended plugins
+- Docker
+- Ansi color
 
 ## Build logger in localhost
 
