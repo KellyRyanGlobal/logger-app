@@ -30,10 +30,12 @@ pipeline {
         }
         stage('Acceptance Test') {
             steps {
+                ansiColor('vga') {
                 sh '''
                 chmod +x test/acceptance/acceptance.sh
                 test/acceptance/acceptance.sh output.out
                 '''
+                }
             }
         }
      }
