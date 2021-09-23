@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 
-source $HOME/testing-app/test/common.sh
+source test/common.sh
 
 
 TEST_CHECK=0
