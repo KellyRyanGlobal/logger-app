@@ -25,5 +25,13 @@ pipeline {
                 '''
             }
         }
+        stage('Acceptance Test') {
+            steps {
+                sh '''
+                chmod +x test/acceptance/acceptance.sh
+                test/acceptance/acceptance.sh output.out
+                '''
+            }
+        }
      }
 }
