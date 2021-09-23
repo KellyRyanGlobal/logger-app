@@ -12,6 +12,13 @@ main () {
     sum=$( expr "10" + "20")
     logging_test $sum
 
+    
+    echo "Check the system hostname"
+    name=$(hostname)
+
+    logging_test $name
+
+
      if [[ "$TEST_CHECK" -gt "0" ]]; then
         echo " Test had $TEST_CHECK Failures"
         return 1

@@ -45,7 +45,7 @@ not_empty() {
 
 logging_test() {
 
-    echo "check if network logging exists"
+    echo "check if $1 logging exists"
     check=0    
     echo "$3"
     for i in "${results[@]}"
