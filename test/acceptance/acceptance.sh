@@ -3,20 +3,26 @@
 set -e
 set -o pipefail
 
+
 source test/common.sh
+
 
 TEST_CHECK=0
 
-main() {
-
+main () {
     echo "reading in $1 "
     IFS=$'\r\n' command eval 'results=($(cat $1))'
 
-    echo "Check if not null"
-    not_empty $results
-    echo "Check for network_test"
-    net="NETWORK"
-    logging_test $net
+    echo "Check logic of application"
+    sum=$( expr "10" + "20")
+    logging_test $sum
+
+    
+    echo "Check the system hostname"
+    name=$(hostname)
+
+    logging_test $name
+
 
     if [[ "$TEST_CHECK" -gt "0" ]]; then
         echo " Test had $TEST_CHECK Failures"
@@ -26,5 +32,4 @@ main() {
     fi
 
 }
-
 main "$@"

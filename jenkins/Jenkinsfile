@@ -19,10 +19,23 @@ pipeline {
         }
         stage('Functional Test') {
             steps {
+                ansiColor('vga') {
+                    sh '''
+                    chmod +x test/functional/functional.sh
+                    test/functional/functional.sh output.out
+                     '''
+
+                }                
+            }
+        }
+        stage('Acceptance Test') {
+            steps {
+                ansiColor('vga') {
                 sh '''
-                chmod +x test/functional/functional.sh
-                test/functional/functional.sh output.out
+                chmod +x test/acceptance/acceptance.sh
+                test/acceptance/acceptance.sh output.out
                 '''
+                }
             }
         }
      }
