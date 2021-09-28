@@ -1,4 +1,5 @@
 #include "easylogger.h"
+#include "easylogger-impl.h"
 #include "template_functions.h"
 #include <stdio.h>
 #include <stdlib.h>
