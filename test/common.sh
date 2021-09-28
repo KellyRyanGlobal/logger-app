@@ -63,3 +63,15 @@ logging_test() {
         TEST_CHECK=${TEST_CHECK+1}
     fi
 }
+
+check_files() {
+
+    echo "Verify $1 exists"
+    if [ test -f "$1" ]; then
+        log_success "$1 log was found"
+    else
+        log_failure "$1 was not found"
+        echo "FAIL "        
+        TEST_CHECK=${TEST_CHECK+1}
+    fi
+}
