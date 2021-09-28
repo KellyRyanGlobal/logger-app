@@ -17,6 +17,16 @@ pipeline {
                 '''
             }
         }
+         stage('Smoke Test') {
+            steps {
+                ansiColor('vga') {
+                    sh '''
+                    chmod +x test/smoke/smoke.sh
+                    test/smoke/smoke.sh
+                    '''
+                }                
+            }
+        }
         stage('Functional Test') {
             steps {
                 ansiColor('vga') {
