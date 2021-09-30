@@ -54,12 +54,14 @@ int printSignedRange(int count)
 static void overflow_test() {
 	short int bits = 8;
 	short int size = sizeof(short int)*bits; // sizeof is bytes
-	long max = printSignedRange(size);
+	short int max = printSignedRange(size);
 	LOG_INFO(TEST,"max size of short int: " <<  max);
 	// signed short int: -32768 to 32767
 	// overflow 
-	size++;
-	LOG_INFO(TEST,size);
+	max++;
+	LOG_INFO(TEST,max);
+	// max +=1000000000000000000;
+	// LOG_INFO(TEST,max);
 }
 
 
