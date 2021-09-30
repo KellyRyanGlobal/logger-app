@@ -10,6 +10,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <bits/stdc++.h>
 
 
 using namespace std;
@@ -39,6 +40,30 @@ static void add_test() {
     result = sum <int> (a, b);
     LOG_INFO(TEST,  a << " + " << b << " = " << result);
 }
+
+/** function to calculate range of data type */
+int printSignedRange(int count)
+{
+    int min = pow(2, count - 1);
+    int max = pow(2, count - 1) - 1;
+    // printf("\n %d to %d \n", min * (-1), max);
+	return max;
+}
+
+/**
+ * Function to trigger an overflow of a short int datatype.
+ * */
+static void overflow_test() {
+	short int bits = 8;
+	short int size = sizeof(short int)*bits; // sizeof returns # bytes
+	short int max = printSignedRange(size);
+	LOG_INFO(TEST,"max size of short int: " <<  max);
+	// signed short int: -32768 to 32767
+	// overflow 
+	max++;
+	LOG_INFO(TEST,"expected result: 32768, actual result due to overflow: " << max);
+}
+
 
 void host_test(int hostname) { //This function returns host name for
 
@@ -73,6 +98,7 @@ int main(int argc , char *argv[]) {
 	test1();
 	test2();
 	add_test();
+	overflow_test();
 
     hostname = gethostname(host, sizeof(host));
 	host_test(hostname);
