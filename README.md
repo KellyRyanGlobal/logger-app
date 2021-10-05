@@ -168,7 +168,13 @@ To build logger in a docker container run the following
 4. Verify the contents of the output
 
 
+## Server Client Deployment
 
+Will build a server and client application
+1. `g++ src/server.cc -o server.exe`
+2. `g++ src/client.cc -o client.exe`
+3. Run `./server.exe`
+4. Run `./client.exe`
 
 
 
