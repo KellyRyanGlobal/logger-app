@@ -71,26 +71,9 @@ class Client_socket{
             LOG_INFO(CLIENT, "bytes sent " << bytes_sent << "\n");
             valread = read( sock , buffer , 1024);
             LOG_INFO(CLIENT, buffer);
-            system("./test_app.exe > results.txt");
-
-            // Open the file
-            
-            string line; //input variable
-            myfile.open ("results.txt");
-                if (!myfile) // error out if the file could not be opened
-                {
-                    LOG_ERROR(SUB, "Error: file could not be opened" << line << "\n");
-                    exit(1);
-                }
-            while ( getline (myfile,line) ) 
-            {
-                
-                LOG_INFO(CLIENT, line << "\n");
-            // std::cout << mychar;  
-            }
-            myfile.close();
-            LOG_INFO(CLIENT, "end of file" << "\n");
         }
+            //system("./test.exe > input//results.txt");
+
 };
 
 int main(){

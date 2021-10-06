@@ -56,15 +56,7 @@ class Server_socket{
             }
             LOG_INFO(SERVER," Socket Created\n");
         }
-        // Forcefully attaching socket to the port 8080
-        // if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
-        //                                             &opt, sizeof(opt)))
-        // {
-        //     perror("setsockopt");
-        //     exit(EXIT_FAILURE);
-        // }
-        
-        // Forcefully attaching socket to the port 8080
+        // Create the bind for server fd object
         void bind_socket() {
             if (bind(server_fd, (struct sockaddr *)&address, 
                                         sizeof(address))<0)
@@ -72,35 +64,35 @@ class Server_socket{
                 LOG_ERROR(SUB,  "Bind failed\n");
                 exit(EXIT_FAILURE);
             }
-            cout << " Bind Successful.\n";
+            LOG_INFO(SERVER, " Bind Successful.\n");
         }
-
+        // Listen for incoming request
         void set_listen_set() {
             if (listen(server_fd, 3) < 0)
             {
-                cerr <<  "listen\n";
+                LOG_ERROR(SUB,  "listen\n");
                 exit(EXIT_FAILURE);
             }
-            cout << " Socket Listening\n";
+            LOG_INFO(SERVER, " Socket Listening\n");
         }
-
+        //accept the connection based on ....nothing
         void accept_connection() {
             if ((new_socket = accept(server_fd, (struct sockaddr *)&address, 
                             (socklen_t*)&addrlen))<0)
             {
-                cerr << "accept";
+                LOG_ERROR(SUB, "accept");
                 exit(EXIT_FAILURE);
             }
-            cout << "Connected to client\n";
+            LOG_INFO(SERVER, "Connected to client\n");
         }
 
         void receive_file(){
             char buffer[1024] = {};
             int valread = read( new_socket , buffer, 1024);
-            cout <<"Data received "<< valread <<" bytes\n";
-            cout <<"Saving data to file.\n";            
+            LOG_INFO(SERVER,"Data received "<< valread <<" bytes\n");
+            LOG_INFO(SERVER,"Saving data to file.\n");            
             myfile << buffer;
-            cout <<" File Saved.\n";
+            LOG_INFO(SERVER," File Saved.\n");
         }
 };
 
