@@ -152,11 +152,10 @@ Install plugins within the jenkins dashboard after installation. These help with
 ## Build logger in localhost
 
 To build logger locally in your workstation, run the following command
-1. `cd src`
-2. `make`
-3. Verify the test-bin is created
-4. Run the following command
-    1. `g++ test.cc -o test.exe`
+1. `make -C src`
+2. Verify the test-bin is created
+3. Run the following command
+4. Verify the build does not fail
     
 
 ## Build logger in local docker container
@@ -168,13 +167,19 @@ To build logger in a docker container run the following
 4. Verify the contents of the output
 
 
-## Server Client Deployment
+## Server-Client Deployment
 
 Will build a server and client application
-1. `g++ src/server.cc -o server.exe`
-2. `g++ src/client.cc -o client.exe`
-3. Run `./server.exe`
-4. Run `./client.exe`
+
+### Prerequisite
+- Build logger in localhost must be run
+
+### Build Client and Server
+1. **Terminal1**: Run `./test.exe > input/results.txt`
+2. **Terminal1**: Run `./server.exe`
+3. **Localhost**: Open a new Terminal
+4. **Terminal2**: Run `./client.exe`
+5. **Terminal2**: Verify output by running `cat output/server.out`
 
 
 

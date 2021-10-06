@@ -11,9 +11,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <bits/stdc++.h>
-#include "server.cc"
 
-
+#define BIT_SIZE 8;
 using namespace std;
 
 static easylogger::Logger TEST("TEST");
@@ -52,11 +51,11 @@ int printSignedRange(int count)
 }
 
 /**
- * Function to trigger an overflow of a short int datatype.
+ * Function to trigger a overflow of a short int datatype.
  * */
 static void overflow_test() {
-	short int bits = 8;
-	short int size = sizeof(short int)*bits; // sizeof returns # bytes
+	
+	short int size = sizeof(short int)*BIT_SIZE; // sizeof returns # bytes
 	short int max = printSignedRange(size);
 	LOG_INFO(TEST,"max size of short int: " <<  max);
 	// signed short int: -32768 to 32767

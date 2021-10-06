@@ -18,7 +18,7 @@ static easylogger::Logger SUB("SUB");
 
 class Server_socket{
 
-    fstream myfile;
+    ofstream myfile;
     int server_fd, valread, opt = 1, new_socket, address_length;
     struct sockaddr_in address;
     int addrlen;
@@ -38,14 +38,7 @@ class Server_socket{
             set_listen_set();
             accept_connection();
 
-            myfile.open(".//output//output.out", ios::out | ios::trunc | ios::binary);
-            if(myfile.is_open()) {
-                LOG_INFO(SERVER, "File Creted.\n");
-            }
-            else{
-                LOG_ERROR(SUB, " File creation failed, Exititng.\n");
-                exit(EXIT_FAILURE);
-            }
+            
         }
         // Creating socket file descriptor
         void create_socket() {
@@ -80,7 +73,7 @@ class Server_socket{
             if ((new_socket = accept(server_fd, (struct sockaddr *)&address, 
                             (socklen_t*)&addrlen))<0)
             {
-                LOG_ERROR(SUB, "accept");
+                LOG_ERROR(SUB, "acception of Connection failed");
                 exit(EXIT_FAILURE);
             }
             LOG_INFO(SERVER, "Connected to client\n");
@@ -90,9 +83,19 @@ class Server_socket{
             char buffer[1024] = {};
             int valread = read( new_socket , buffer, 1024);
             LOG_INFO(SERVER,"Data received "<< valread <<" bytes\n");
-            LOG_INFO(SERVER,"Saving data to file.\n");            
-            myfile << buffer;
-            LOG_INFO(SERVER," File Saved.\n");
+            LOG_INFO(SERVER,"Saving data to file.\n" << buffer << "\n" );
+            myfile.open(".//output//server.out", ios::out | ios::trunc | ios::binary);
+            if(myfile.is_open()) {
+                LOG_INFO(SERVER, "File Creted.\n");
+                myfile << buffer;
+                LOG_INFO(SERVER," File Saved.\n");
+                myfile.close();
+            }
+            else{
+                LOG_ERROR(SUB, " File creation failed, Exititng.\n");
+                exit(EXIT_FAILURE);
+            }            
+            
         }
 };
 

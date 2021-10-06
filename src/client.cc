@@ -69,14 +69,13 @@ class Client_socket{
             int bytes_sent = send(sock , mystring.c_str() , mystring.length() , 0 );
             LOG_INFO(CLIENT,"sending :" << mystring << "\n");
             LOG_INFO(CLIENT, "bytes sent " << bytes_sent << "\n");
-            valread = read( sock , buffer , 1024);
-            LOG_INFO(CLIENT, buffer);
-        }
-            //system("./test.exe > input//results.txt");
+            //valread = read( sock , buffer , 1024);
+        }            
 
 };
 
 int main(){
+    system("./test.exe > input//results.txt");
     Client_socket C;
     SUB.Level(easylogger::LEVEL_WARNING);
 	CLIENT.Level(easylogger::LEVEL_TRACE);
