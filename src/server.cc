@@ -13,6 +13,9 @@
 
 #define PORT 8050
 
+static easylogger::Logger SERVER("SERVER");
+static easylogger::Logger SUB("SUB");
+
 class Server_socket{
 
     fstream myfile;
@@ -37,10 +40,10 @@ class Server_socket{
 
             myfile.open(".//output//output.out", ios::out | ios::trunc | ios::binary);
             if(myfile.is_open()) {
-                cout<<"[LOG] : File Creted.\n";
+                LOG_INFO(SERVER, "File Creted.\n");
             }
             else{
-                cerr <<" File creation failed, Exititng.\n";
+                LOG_ERROR(SUB, " File creation failed, Exititng.\n");
                 exit(EXIT_FAILURE);
             }
         }
@@ -48,10 +51,10 @@ class Server_socket{
         void create_socket() {
             if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
             {
-                cerr << "socket failed\n";
+                LOG_ERROR(SUB, "socket failed\n");
                 exit(EXIT_FAILURE);
             }
-            cout << " Socket Created\n";
+            LOG_INFO(SERVER," Socket Created\n");
         }
         // Forcefully attaching socket to the port 8080
         // if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
@@ -66,7 +69,7 @@ class Server_socket{
             if (bind(server_fd, (struct sockaddr *)&address, 
                                         sizeof(address))<0)
             {
-                cerr << "Bind failed\n";
+                LOG_ERROR(SUB,  "Bind failed\n");
                 exit(EXIT_FAILURE);
             }
             cout << " Bind Successful.\n";
@@ -103,6 +106,8 @@ class Server_socket{
 
 int main(){
     Server_socket S;
+    SUB.Level(easylogger::LEVEL_WARNING);
+	SERVER.Level(easylogger::LEVEL_TRACE);
     S.receive_file();
     return 0;
 }

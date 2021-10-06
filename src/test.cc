@@ -11,6 +11,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <bits/stdc++.h>
+#include "server.cc"
 
 
 using namespace std;
