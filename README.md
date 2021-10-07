@@ -137,7 +137,7 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
     5. **VM TERMINAL**:`jenkins/scripts/jenkins.sh`
     6. Wait about 2 minutes and jenkins should be up
     7. **Local host**: Open a browser
-    8. **Browser**: navigate to http://<VM IP>:8080
+    8. **Browser**: navigate to http://< VM IP >:8080
        1. If it is the first time, run the following command in a terminal
            1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
        2. **Webpage**: Enter the `initialadminPassword` into the browser
