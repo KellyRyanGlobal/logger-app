@@ -154,8 +154,7 @@ Install plugins within the jenkins dashboard after installation. These help with
 To build logger locally in your workstation, run the following command
 1. `make -C src`
 2. Verify the test-bin is created
-3. Run the following command
-4. Verify the build does not fail
+3.  Verify the build does not fail
     
 
 ## Build logger in local docker container
