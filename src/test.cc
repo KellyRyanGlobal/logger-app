@@ -28,7 +28,6 @@ static void test1() {
 }
 
 static void test2() {
-	//EASY_TRACE(TRACE, test1);
 
 	LOG_DEBUG(TEST, "don't show me");
 	LOG_DEBUG(NETWORK, "network");
@@ -51,7 +50,7 @@ int printSignedRange(int count)
 }
 
 /**
- * Function to trigger a overflow of a short int datatype.
+ * Function to trigger an overflow of a short int datatype.
  * */
 static void overflow_test() {
 	
@@ -68,7 +67,7 @@ static void overflow_test() {
 void host_test(int hostname) { //This function returns host name for
 
    if (hostname == -1) {
-      perror("gethostname");
+      LOG_ERROR(SUB, "gethostname");
       exit(1);
    }
 }
@@ -76,7 +75,7 @@ void host_test(int hostname) { //This function returns host name for
 void IP_formatter(char *IPbuffer) { //convert IP string to dotted decimal
 
    if (NULL == IPbuffer) {
-      perror("inet_ntoa");
+      LOG_ERROR(SUB, "inet_ntoa");
       exit(1);
    }
 }
