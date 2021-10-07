@@ -51,7 +51,7 @@ int printSignedRange(int count)
 }
 
 /**
- * Function to trigger a overflow of a short int datatype.
+ * Function to trigger an overflow of a short int datatype.
  * */
 static void overflow_test() {
 	
