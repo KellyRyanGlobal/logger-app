@@ -98,7 +98,7 @@ The prerequisites below require installation before deploying the application. F
 The following needs to be pre installed on a Windows 10 workstation  before proceeding. How to install the services are outside of the scope of this README.
 
 - VirtualBox (hypervisor)- See VirtualBox Prerequisite
-- - Linux (CentOS prefered) OS VM image
+- Linux (CentOS prefered) OS VM image
 
 ### VirtualBox 
 The following needs to be installed on the Linux OS VM that is installed on VirtualBox. The installation of how to install the OS is outside of the scope of this readme.
@@ -134,7 +134,7 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
         1. `git clone git@github.com:KellyRyanGlobal/testing-app.git`
     3. **VM TERMINAL**: Navigate to the cloned repo for `testing-app`
     4. **VM TERMINAL**: `cd jenkins`
-    5. **VM TERMINAL**:`script/jenkins.sh`
+    5. **VM TERMINAL**:`jenkins/scripts/jenkins.sh`
     6. Wait about 2 minutes and jenkins should be up
     7. **Local host**: Open a browser
     8. **Browser**: navigate to http://<VM IP>:8080
