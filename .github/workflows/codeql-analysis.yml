@@ -57,8 +57,8 @@ jobs:
 
 
     - run: |
-       apt-get install doxygen g++ make -y
-       make -C src
+       cd src
+       g++ test.cc -o test.exe
     #   make release
 
     - name: Perform CodeQL Analysis
