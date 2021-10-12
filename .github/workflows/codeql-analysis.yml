@@ -57,6 +57,7 @@ jobs:
 
 
     - run: |
+       apt-get install doxygen g++ make -y
        make -C src
     #   make release
 
