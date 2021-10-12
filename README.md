@@ -10,6 +10,7 @@ Some of the modifications will not have to do with the logger itself, but test o
 The logging will help provide information based on these events occurring.
 
 Testing that will be performed include
+- **Smoke testing**- verifying the application was built as intended and the artifact is present
 - **Functional testing**- verifying the application is working as intended based predefined circumstance
    - Positive and negative- Testing based on assertions of input 
 - **Acceptance testing**- Verifying the output of logic is what is expected based on requirements
