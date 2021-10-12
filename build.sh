@@ -1,5 +1,5 @@
 #!/bin/sh
 
 make -C src
-./server.exe
+./server.exe &
 ./test_client.exe
