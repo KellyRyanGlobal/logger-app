@@ -10,6 +10,7 @@
 
 using namespace std;
 
+
 static easylogger::Logger CLIENT("CLIENT");
 static easylogger::Logger BAD("SUB");
 
@@ -66,7 +67,7 @@ class Client_socket{
         {
             std::string mystring ((std::istreambuf_iterator<char>(myfile)), std::istreambuf_iterator<char>());
             int bytes_sent = send(sock , mystring.c_str() , mystring.length() , 0 );
-            LOG_INFO(CLIENT,"sending :" << mystring << "\n");
+            cout << "sending :" << mystring << "\n";
             LOG_INFO(CLIENT, "bytes sent " << bytes_sent << "\n");
             //valread = read( sock , buffer , 1024);
         }            
@@ -77,7 +78,7 @@ class Client_socket{
 //     system("./test.exe > input//results.txt");
 //     Client_socket C;
 //     SUB.Level(easylogger::LEVEL_WARNING);
-// 	    CLIENT.Level(easylogger::LEVEL_TRACE);
+// 	   CLIENT.Level(easylogger::LEVEL_TRACE);
 //     C.send_file();
 //     return 0;
 // }
