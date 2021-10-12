@@ -79,7 +79,6 @@ void IP_formatter(char *IPbuffer) { //convert IP string to dotted decimal
 
 int main(int argc , char *argv[]) {
 
-	ofstream outfile;
     char host[256];
     char output[12] = "hostname: ";
     char *IP;
@@ -90,7 +89,16 @@ int main(int argc , char *argv[]) {
 	NETWORK.Level(easylogger::LEVEL_TRACE);
 	TRACER.Level(easylogger::LEVEL_TRACE);
 
-	//EASY_LOG(TRACE, main);
+	test1();
+	test2();
+	add_test();
+	overflow_test();
+
+	hostname = gethostname(host, sizeof(host));
+	host_test(hostname);
+	strcat(output, host);
+	LOG_INFO(HOST, output);
+	strcpy(output, "");
 	
 	freopen ("input//results.txt", "w", stdout);
 	test1();
@@ -103,10 +111,8 @@ int main(int argc , char *argv[]) {
 	strcat(output, host);
 	LOG_INFO(HOST, output);
 	fclose(stdout);
-
+	
 	Client_socket C;
-	//system("./test.exe > input//results.txt");
-	sleep (5);
     SUB.Level(easylogger::LEVEL_WARNING);
     C.send_file();
 
