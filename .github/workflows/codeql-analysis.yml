@@ -59,6 +59,8 @@ jobs:
     - run: |
        cd src
        g++ test.cc -o test.exe
+       g++ server.cc -o server.exe
+       g++ client.cc -o client.exe
     #   make release
 
     - name: Perform CodeQL Analysis
