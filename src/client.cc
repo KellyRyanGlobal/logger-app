@@ -1,7 +1,6 @@
 // Client side C/C++ program to demonstrate Socket programming
 #include "easylogger.h"
 #include <stdio.h>
-#include <sys/socket.h>
 #include <fstream>
 #include <arpa/inet.h>
 #include <unistd.h>

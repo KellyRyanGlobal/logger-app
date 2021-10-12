@@ -5,11 +5,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <cstring>
-#include <netdb.h>
 #include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 #include <bits/stdc++.h>
 
 #define BIT_SIZE 8;
