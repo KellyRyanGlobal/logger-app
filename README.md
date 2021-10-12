@@ -137,7 +137,7 @@ It is recommended to deploy the jenkins docker container within a Linux VM. For 
     5. **VM TERMINAL**:`jenkins/scripts/jenkins.sh`
     6. Wait about 2 minutes and jenkins should be up
     7. **Local host**: Open a browser
-    8. **Browser**: navigate to http://<VM IP>:8080
+    8. **Browser**: navigate to http://< VM IP >:8080
        1. If it is the first time, run the following command in a terminal
            1. **Terminal**:`docker exec -it jenkins-docker  cat /var/jenkins_home/secrets/initialAdminPassword`
        2. **Webpage**: Enter the `initialadminPassword` into the browser
@@ -152,11 +152,9 @@ Install plugins within the jenkins dashboard after installation. These help with
 ## Build logger in localhost
 
 To build logger locally in your workstation, run the following command
-1. `cd src`
-2. `make`
-3. Verify the test-bin is created
-4. Run the following command
-    1. `g++ test.cc -o test.exe`
+1. `make -C src`
+2. Verify the test-bin is created in the `src` folder
+3. Verify the build does not fail
     
 
 ## Build logger in local docker container
@@ -168,7 +166,19 @@ To build logger in a docker container run the following
 4. Verify the contents of the output
 
 
+## Server-Client Deployment
 
+Will build a server and client application
+
+### Prerequisite
+- Build logger in localhost must be run
+
+### Build Client and Server
+1. **Terminal1**: Run `./test.exe > input/results.txt`
+2. **Terminal1**: Run `./server.exe`
+3. **Localhost**: Open a new Terminal
+4. **Terminal2**: Run `./client.exe`
+5. **Terminal2**: Verify output by running `cat output/server.out`
 
 
 

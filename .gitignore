@@ -3,6 +3,9 @@
 *.exe
 *.bin
 .idea
+*-bin
 src/html
 easylogger
 template_functions
+results.txt
+output.out
