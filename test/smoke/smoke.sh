@@ -12,7 +12,6 @@ main() {
 
     echo "Verify Files were built for functional testing"    
     check_files "test_client.exe"
-    check_files "shouldfail"
     check_files "src/test-bin"
 
     if [[ "$TEST_CHECK" -gt "0" ]]; then
