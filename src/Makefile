@@ -1,6 +1,6 @@
 all: docs test-bin server-bin
 
-test-bin: test.cc easylogger.h easylogger-impl.h Makefile
+test-bin: test_client.cc easylogger.h easylogger-impl.h Makefile
 	$(CXX) -g -o test-bin test_client.cc
 	$(CXX) test_client.cc -o test_client.exe
 	mv test_client.exe ..
