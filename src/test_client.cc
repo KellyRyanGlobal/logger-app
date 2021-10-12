@@ -1,15 +1,12 @@
 #include "easylogger.h"
 #include "template_functions.h"
+#include "client.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <errno.h>
 #include <cstring>
-#include <netdb.h>
 #include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 #include <bits/stdc++.h>
 
 #define BIT_SIZE 8;
@@ -28,7 +25,6 @@ static void test1() {
 }
 
 static void test2() {
-	//EASY_TRACE(TRACE, test1);
 
 	LOG_DEBUG(TEST, "don't show me");
 	LOG_DEBUG(NETWORK, "network");
@@ -68,7 +64,7 @@ static void overflow_test() {
 void host_test(int hostname) { //This function returns host name for
 
    if (hostname == -1) {
-      perror("gethostname");
+      LOG_ERROR(SUB, "gethostname");
       exit(1);
    }
 }
@@ -76,7 +72,7 @@ void host_test(int hostname) { //This function returns host name for
 void IP_formatter(char *IPbuffer) { //convert IP string to dotted decimal
 
    if (NULL == IPbuffer) {
-      perror("inet_ntoa");
+      LOG_ERROR(SUB, "inet_ntoa");
       exit(1);
    }
 }
@@ -86,6 +82,7 @@ int main(int argc , char *argv[]) {
     char host[256];
     char output[12] = "hostname: ";
     char *IP;
+	ofstream file;;
     int hostname;
 
 	SUB.Level(easylogger::LEVEL_WARNING);
@@ -93,20 +90,39 @@ int main(int argc , char *argv[]) {
 	NETWORK.Level(easylogger::LEVEL_TRACE);
 	TRACER.Level(easylogger::LEVEL_TRACE);
 
-	//EASY_LOG(TRACE, main);
+	//create the file in case it does not exist
+	file.open("input//results.txt");
+	file.close();
+
+	//logging output to file for server sending
+	freopen ("input//results.txt", "w", stdout);
 
 	test1();
 	test2();
 	add_test();
 	overflow_test();
 
-    hostname = gethostname(host, sizeof(host));
+	hostname = gethostname(host, sizeof(host));
 	host_test(hostname);
 	strcat(output, host);
-    LOG_INFO(HOST, output);
+	LOG_INFO(HOST, output);
+	sleep(5);
+	Client_socket C;
+	C.send_file();	
+	fclose(stdout);	
+	//clear output for sending
+	strcpy(output, "");
+	//std output on console
+	// test1();
+	// test2();
+	// add_test();
+	// overflow_test();
 
-	LOG_INFO(SUB, "info!");
-	LOG_ERROR(SUB, "error!");
+	// hostname = gethostname(host, sizeof(host));
+	// host_test(hostname);
+	// strcat(output, host);
+	// LOG_INFO(HOST, output);
+    //C.send_file();
 	//LOG_FATAL(TEST, "dead");
 	//LOG_ERROR(TEST, "won't see me");
 	return 0;

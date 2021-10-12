@@ -10,6 +10,7 @@ Some of the modifications will not have to do with the logger itself, but test o
 The logging will help provide information based on these events occurring.
 
 Testing that will be performed include
+- **Smoke testing**- verifying the application was built as intended and the artifact is present
 - **Functional testing**- verifying the application is working as intended based predefined circumstance
    - Positive and negative- Testing based on assertions of input 
 - **Acceptance testing**- Verifying the output of logic is what is expected based on requirements
@@ -161,7 +162,7 @@ To build logger locally in your workstation, run the following command
 
 To build logger in a docker container run the following
 1. `docker-compose up`
-2. `docker exec logger sh -c "./test_app.exe" > output.out`
+2. `docker exec logger sh -c "./test_client.exe" > output.out`
 3. `cat output.out`
 4. Verify the contents of the output
 
@@ -174,11 +175,10 @@ Will build a server and client application
 - Build logger in localhost must be run
 
 ### Build Client and Server
-1. **Terminal1**: Run `./test.exe > input/results.txt`
-2. **Terminal1**: Run `./server.exe`
-3. **Localhost**: Open a new Terminal
-4. **Terminal2**: Run `./client.exe`
-5. **Terminal2**: Verify output by running `cat output/server.out`
+1. **Terminal1**: Run `./server.exe`
+2. **Localhost**: Open a new Terminal
+3. **Terminal2**: Run `./test_client.exe `
+4. **Terminal2**: Verify output by running `cat output/server.out`
 
 
 

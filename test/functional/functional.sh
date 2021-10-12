@@ -15,8 +15,7 @@ main() {
     echo "Check if not null"
     not_empty $results
     echo "Check for network_test"
-    net="NETWORK"
-    logging_test $net
+    logging_test "NETWORK"
 
     if [[ "$TEST_CHECK" -gt "0" ]]; then
         echo " Test had $TEST_CHECK Failures"

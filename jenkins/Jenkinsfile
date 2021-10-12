@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                 make -C src
                 chmod +x build.sh
-                ./build.sh > output.out
+                ./build.sh 
                 '''
             }
         }
@@ -22,7 +22,7 @@ pipeline {
                 ansiColor('vga') {
                     sh '''
                     chmod +x test/smoke/smoke.sh
-                    test/smoke/smoke.sh
+                    test/smoke/smoke.sh 
                     '''
                 }                
             }
@@ -32,7 +32,7 @@ pipeline {
                 ansiColor('vga') {
                     sh '''
                     chmod +x test/functional/functional.sh
-                    test/functional/functional.sh output.out
+                    test/functional/functional.sh input/results.txt
                      '''
 
                 }                
@@ -43,7 +43,7 @@ pipeline {
                 ansiColor('vga') {
                 sh '''
                 chmod +x test/acceptance/acceptance.sh
-                test/acceptance/acceptance.sh output.out
+                test/acceptance/acceptance.sh input/results.txt
                 '''
                 }
             }

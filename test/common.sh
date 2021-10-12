@@ -47,7 +47,7 @@ logging_test() {
 
     echo "check if network logging exists"
     check=0    
-    echo "$3"
+    echo $results
     for i in "${results[@]}"
         do
             if [[ "$i" == *"$1"* ]]; then
@@ -67,6 +67,7 @@ logging_test() {
 check_files() {
 
     echo "Verify $1 exists"
+    ls
     if [ -f "$1" ]; then
         log_success "$1 log was found"
     else
