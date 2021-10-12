@@ -11,10 +11,6 @@ server-bin: server.cc easylogger.h easylogger-impl.h  Makefile
 	$(CXX) server.cc -o server.exe
 	mv server.exe ..
 
-# client-bin: client.cc easylogger.h easylogger-impl.h client.cc Makefile
-# 	$(CXX) -g -o client-bin client.cc
-# 	$(CXX) client.cc -o client.exe
-# 	mv client.exe ..
 docs:
 	doxygen
 
