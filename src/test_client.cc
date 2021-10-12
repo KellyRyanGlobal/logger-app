@@ -82,8 +82,7 @@ int main(int argc , char *argv[]) {
     char host[256];
     char output[12] = "hostname: ";
     char *IP;
-	
-	Client_socket C;
+	ofstream file;;
     int hostname;
 
 	SUB.Level(easylogger::LEVEL_WARNING);
@@ -91,23 +90,13 @@ int main(int argc , char *argv[]) {
 	NETWORK.Level(easylogger::LEVEL_TRACE);
 	TRACER.Level(easylogger::LEVEL_TRACE);
 
-	//std output on console
-	test1();
-	test2();
-	add_test();
-	overflow_test();
+	//create the file in case it does not exist
+	file.open("input//results.txt");
+	file.close();
 
-	hostname = gethostname(host, sizeof(host));
-	host_test(hostname);
-	strcat(output, host);
-	LOG_INFO(HOST, output);
-    //C.send_file();
-
-	//clear output for sending
-	strcpy(output, "");
-	
 	//logging output to file for server sending
 	freopen ("input//results.txt", "w", stdout);
+
 	test1();
 	test2();
 	add_test();
@@ -117,9 +106,23 @@ int main(int argc , char *argv[]) {
 	host_test(hostname);
 	strcat(output, host);
 	LOG_INFO(HOST, output);
-    C.send_file();
-	
-	fclose(stdout);
+	sleep(5);
+	Client_socket C;
+	C.send_file();	
+	fclose(stdout);	
+	//clear output for sending
+	strcpy(output, "");
+	//std output on console
+	// test1();
+	// test2();
+	// add_test();
+	// overflow_test();
+
+	// hostname = gethostname(host, sizeof(host));
+	// host_test(hostname);
+	// strcat(output, host);
+	// LOG_INFO(HOST, output);
+    //C.send_file();
 	//LOG_FATAL(TEST, "dead");
 	//LOG_ERROR(TEST, "won't see me");
 	return 0;
