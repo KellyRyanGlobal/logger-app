@@ -82,6 +82,8 @@ int main(int argc , char *argv[]) {
     char host[256];
     char output[12] = "hostname: ";
     char *IP;
+	
+	Client_socket C;
     int hostname;
 
 	SUB.Level(easylogger::LEVEL_WARNING);
@@ -89,6 +91,7 @@ int main(int argc , char *argv[]) {
 	NETWORK.Level(easylogger::LEVEL_TRACE);
 	TRACER.Level(easylogger::LEVEL_TRACE);
 
+	//std output on console
 	test1();
 	test2();
 	add_test();
@@ -98,8 +101,12 @@ int main(int argc , char *argv[]) {
 	host_test(hostname);
 	strcat(output, host);
 	LOG_INFO(HOST, output);
+    //C.send_file();
+
+	//clear output for sending
 	strcpy(output, "");
 	
+	//logging output to file for server sending
 	freopen ("input//results.txt", "w", stdout);
 	test1();
 	test2();
@@ -110,12 +117,9 @@ int main(int argc , char *argv[]) {
 	host_test(hostname);
 	strcat(output, host);
 	LOG_INFO(HOST, output);
-	fclose(stdout);
-	
-	Client_socket C;
-    SUB.Level(easylogger::LEVEL_WARNING);
     C.send_file();
-
+	
+	fclose(stdout);
 	//LOG_FATAL(TEST, "dead");
 	//LOG_ERROR(TEST, "won't see me");
 	return 0;
