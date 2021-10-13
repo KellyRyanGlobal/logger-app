@@ -3,7 +3,7 @@ pipeline {
             dockerfile {
                 filename 'Dockerfile'
                 dir "${DOCK_PATH}"
-"            }
+            }
     }
     environment {
         DOCKER_USER = credentials('docker-username')
