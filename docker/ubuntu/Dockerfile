@@ -1,4 +1,4 @@
-FROM IMAGE AS Build
+FROM OS_VER AS Build
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 RUN apt-get update 
 RUN apt-get install doxygen g++ make -y
