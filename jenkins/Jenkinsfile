@@ -1,6 +1,10 @@
 pipeline {
     agent { 
-                dockerfile true               
+            dockerfile {
+                filename 'Dockerfile'
+                dir 'docker/alpine'
+                label 'alpine'
+            }
     }
     environment {
 
