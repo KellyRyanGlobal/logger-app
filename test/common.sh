@@ -45,9 +45,9 @@ not_empty() {
 
 logging_test() {
 
-    echo "check if network logging exists"
+    echo "check $1 exists"
     check=0    
-    echo $results
+    cat input\results.txt
     for i in "${results[@]}"
         do
             if [[ "$i" == *"$1"* ]]; then
@@ -58,7 +58,7 @@ logging_test() {
             fi
         done
     if [[ "$check" -eq "0" ]]; then
-        log_failure "$1 was not in log $results[@]"
+        log_failure "$1 was not in log $results"
         echo "FAIL "        
         TEST_CHECK=${TEST_CHECK+1}
     fi
