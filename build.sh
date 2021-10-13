@@ -3,8 +3,7 @@
 make -C src
 pwd
 ls -l
-chmod +x server.exe
-chmod +x test_client.exe
+cat build.sh
 mkdir -p input output
 ./server.exe &
 ./test_client.exe
