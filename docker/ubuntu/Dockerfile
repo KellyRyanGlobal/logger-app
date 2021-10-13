@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS Build
+FROM ubuntu
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 RUN apt-get update 
 RUN apt-get install doxygen g++ make -y
