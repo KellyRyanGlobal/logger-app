@@ -43,6 +43,8 @@ pipeline {
             steps {
                 ansiColor('vga') {
                 sh '''
+                ./server.exe &
+                ./test_client.exe
                 chmod +x test/acceptance/acceptance.sh
                 test/acceptance/acceptance.sh input/results.txt
                 '''
