@@ -58,7 +58,7 @@ logging_test() {
             fi
         done
     if [[ "$check" -eq "0" ]]; then
-        log_failure "$1 was not in log"
+        log_failure "$1 was not in log $results[@]"
         echo "FAIL "        
         TEST_CHECK=${TEST_CHECK+1}
     fi
