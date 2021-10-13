@@ -10,9 +10,6 @@ source test/common.sh
 TEST_CHECK=0
 
 main () {
-    $HOME/server.exe &
-    $HOME/test_client.exe
-    
     echo "reading in $1 "
     IFS=$'\r\n' command eval 'results=($(cat $1))'
 
