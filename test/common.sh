@@ -67,7 +67,6 @@ logging_test() {
 check_files() {
 
     echo "Verify $1 exists"
-    ls
     if [ -f "$1" ]; then
         log_success "$1 log was found"
     else
