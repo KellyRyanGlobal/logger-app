@@ -15,9 +15,6 @@ pipeline {
                 sh '''
                 chmod +x build.sh
                 ./build.sh
-                ls    
-                $(pwd)/server.exe &
-                $(pwd)/test_client.exe
                 '''
             }
         }
