@@ -3,11 +3,9 @@ pipeline {
             dockerfile {
                 filename 'Dockerfile'
                 dir 'docker/alpine'
-                label 'alpine'
             }
     }
     environment {
-
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASS = credentials('docker-password')
     }
