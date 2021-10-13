@@ -2,7 +2,7 @@ pipeline {
     agent { 
             dockerfile {
                 filename 'Dockerfile'
-                dir '$DOCK_PATH'
+                dir 'DOCK_PATH'
             }
     }
     environment {
