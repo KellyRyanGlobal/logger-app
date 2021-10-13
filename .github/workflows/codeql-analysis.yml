@@ -57,7 +57,8 @@ jobs:
 
 
     - run: |
-       ./build.sh
+       g++ src/test_client.cc -o test_client.exe
+       g++ server.cc -o server.exe
     #   make release
 
     - name: Perform CodeQL Analysis
