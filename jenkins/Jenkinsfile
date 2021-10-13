@@ -14,7 +14,9 @@ pipeline {
             steps {
                 sh '''
                 chmod +x build.sh
-                ./build.sh 
+                ./build.sh          
+                $(pwd)/server.exe &
+                $(pwd)/test_client.exe
                 '''
             }
         }
