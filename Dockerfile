@@ -1,11 +1,6 @@
-FROM ubuntu:latest as BUILD
+FROM alpine:latest AS Build
 ENTRYPOINT ["tail", "-f", "/dev/null"]
-RUN apt-get update 
-RUN apt-get install -y doxygen 
-RUN apt-get install -y make
-RUN apt-get install -y g++
+RUN apk update && apk add doxygen g++ make bash
 COPY . /app
 WORKDIR /app
-CMD [ "./build.sh" ]
-CMD [ "./server.exe &" ]
-CMD [ "./test_client.exe" ]
+#CMD /bin/bash -c ' ./build.sh; /bin/bash'

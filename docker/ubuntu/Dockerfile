@@ -8,6 +8,3 @@ RUN apt-get install -y g++
 RUN [ "hostname ubuntu"]
 COPY . /app
 WORKDIR /app
-CMD [ "./build.sh" ]
-CMD [ "./server.exe &" ]
-CMD [ "./test_client.exe" ]
