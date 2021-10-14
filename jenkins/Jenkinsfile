@@ -3,7 +3,6 @@ pipeline {
             dockerfile {
                 filename 'Dockerfile'
                 dir "${DOCK_PATH}"
-                reuseNode true
             }
     }
     environment {
@@ -12,6 +11,11 @@ pipeline {
     }
     stages {
         stage('Build') {
+            agent {
+                docker {
+                    reuseNode true
+                }
+            }
             steps {
                 sh '''
                 chmod +x build.sh
