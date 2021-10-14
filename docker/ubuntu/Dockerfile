@@ -7,5 +7,5 @@ RUN apt-get install -y g++
 COPY . /app
 WORKDIR /app
 CMD [ "./build.sh" ]
-CMD ./server.exe &
-CMD ./test_client.exe
+CMD [ "./server.exe &" ]
+CMD [ "./test_client.exe" ]
