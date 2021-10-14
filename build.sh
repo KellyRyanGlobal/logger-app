@@ -1,6 +1,24 @@
 #!/bin/sh
 
-make -C src
-mkdir -p src/input src/output
-src/server.exe &
-src/test_client.exe
+main() {
+    if [[ $1 == "ubuntu" ]]; then
+    {
+        make -C src
+        mkdir -p src/input src/output
+        src/server.exe &
+        src/test_client.exe
+    }
+    if [[ $1 == "alpine "]]; then
+    {
+        make -C src
+        mkdir input output
+        ./server.exe &
+        ./test_client.exe
+    }
+    else
+        echo " Host was not passed as a param (see config)"
+        return 1
+    fireturn -
+}
+
+main "$@"
