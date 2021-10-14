@@ -22,8 +22,7 @@ main () {
     echo "Check the system hostname"
     name=$(hostname)
 
-    logging_test $name
-
+    logging_test "$name"
 
     if [[ "$TEST_CHECK" -gt "0" ]]; then
         echo " Test had $TEST_CHECK Failures"
