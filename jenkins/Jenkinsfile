@@ -1,10 +1,6 @@
 pipeline {
     agent { 
-            dockerfile {
-                filename 'Dockerfile'
-                dir "${DOCK_PATH}"
-                reuseNode true
-            }
+            dockerfile true
     }
     environment {
         DOCKER_USER = credentials('docker-username')
@@ -47,6 +43,7 @@ pipeline {
                 ls
                 chmod +x test/acceptance/acceptance.sh
                 test/acceptance/acceptance.sh input/results.txt
+
                 '''
                 }
             }
