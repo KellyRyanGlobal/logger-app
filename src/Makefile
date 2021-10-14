@@ -15,6 +15,5 @@ docs:
 	doxygen
 
 clean:
-	rm -f test-bin
-	rm -f server-bin
-	rm -f *.exe
+	rm -f *-bin
+	rm -f *.exe	

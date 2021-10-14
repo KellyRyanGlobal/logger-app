@@ -2,7 +2,6 @@
 #include "easylogger.h"
 #include <stdio.h>
 #include <fstream>
-#include <arpa/inet.h>
 #include <unistd.h>
 #include <string.h>
 
