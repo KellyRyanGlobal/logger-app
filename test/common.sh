@@ -47,7 +47,6 @@ logging_test() {
 
     echo "check $1 exists"
     check=0    
-    cat input/results.txt
     for i in "${results[@]}"
         do
             if [[ "$i" == *"$1"* ]]; then
