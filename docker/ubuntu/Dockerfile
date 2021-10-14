@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get install -y doxygen 
 RUN apt-get install -y make
 RUN apt-get install -y g++
-RUN [ "hostname "{$HOST}""]
+RUN [ "hostname ubuntu"]
 COPY . /app
 WORKDIR /app
 CMD [ "./build.sh" ]
