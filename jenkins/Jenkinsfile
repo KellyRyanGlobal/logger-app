@@ -6,7 +6,7 @@ pipeline {
             }
     }
     environment {
-        HOST = "${HOST}
+        HOST = "${HOST}"
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASS = credentials('docker-password')
     }
