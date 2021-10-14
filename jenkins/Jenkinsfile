@@ -6,7 +6,7 @@ pipeline {
             }
     }
     environment {
-        HOST = "${HOST}"
+        OS_HOST = "${OS_HOST}"
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASS = credentials('docker-password')
     }
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh '''
                 chmod +x build.sh
-                ./build.sh $HOST
+                ./build.sh "${OS_HOST}"
                 '''
             }
         }
