@@ -3,6 +3,7 @@ pipeline {
             dockerfile {
                 filename 'Dockerfile'
                 dir "${DOCK_PATH}"
+                reuseNode true
             }
     }
     environment {
@@ -43,6 +44,7 @@ pipeline {
             steps {
                 ansiColor('vga') {
                 sh '''
+                ls
                 chmod +x test/acceptance/acceptance.sh
                 test/acceptance/acceptance.sh input/results.txt
                 '''
