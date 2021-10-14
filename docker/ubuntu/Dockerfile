@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
 RUN apt-get update 
 RUN apt-get install -y doxygen 
 RUN apt-get install -y make
