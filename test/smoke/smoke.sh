@@ -11,9 +11,8 @@ main() {
 
 
     echo "Verify Files were built "    
-    check_files "src/test_client.exe"
-    check_files "src/server.exe"
-    check_files "src/test-bin"
+    check_files "test_client.exe"
+    check_files "server.exe"
 
     if [[ "$TEST_CHECK" -gt "0" ]]; then
         echo " Test had $TEST_CHECK Failures"
