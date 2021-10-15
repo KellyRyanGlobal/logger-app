@@ -80,7 +80,6 @@ void IP_formatter(char *IPbuffer) { //convert IP string to dotted decimal
 int main(int argc , char *argv[]) {
 
     char host[256];
-    char output[12] = "hostname: ";
     char *IP;
 	ofstream file;;
     int hostname;
@@ -103,15 +102,14 @@ int main(int argc , char *argv[]) {
 	overflow_test();
 
 	hostname = gethostname(host, sizeof(host));
+	host[sizeof(host)-1] = '\0';
 	host_test(hostname);
-	strcat(output, host);
-	LOG_INFO(HOST, output);
+	LOG_INFO(HOST, "hostname: " << host);
 	sleep(5);
 	Client_socket C;
 	C.send_file();	
 	fclose(stdout);	
 	//clear output for sending
-	strcpy(output, "");
 	//std output on console
 	// test1();
 	// test2();
