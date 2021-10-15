@@ -33,8 +33,6 @@ pipeline {
             steps {
                 ansiColor('vga') {
                     sh '''
-                    ls -l
-                    ls src/
                     chmod +x test/functional/functional.sh
                     test/functional/functional.sh input/results.txt
                      '''
