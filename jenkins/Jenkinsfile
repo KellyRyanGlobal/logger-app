@@ -1,9 +1,12 @@
 pipeline {
     agent { 
-                dockerfile true               
+            dockerfile {
+                filename 'Dockerfile'
+                dir "${DOCK_PATH}"
+            }
     }
     environment {
-
+        OS_HOST = "${OS_HOST}"
         DOCKER_USER = credentials('docker-username')
         DOCKER_PASS = credentials('docker-password')
     }
@@ -11,9 +14,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                make -C src
                 chmod +x build.sh
-                ./build.sh 
+                ./build.sh "${OS_HOST}"
                 '''
             }
         }
@@ -44,6 +46,17 @@ pipeline {
                 sh '''
                 chmod +x test/acceptance/acceptance.sh
                 test/acceptance/acceptance.sh input/results.txt
+                
+                '''
+                }
+            }
+        }
+        stage('cleanup') {
+            steps {
+                ansiColor('vga') {
+                sh '''
+                cd src
+                make clean                
                 '''
                 }
             }
