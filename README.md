@@ -24,7 +24,7 @@ There is only one primary class that the user must be aware of, which is
 the `Logger` class.  Objects of `Logger` are used along with a set of
 macros to perform all logging.
 
-To create a new log, create a `Logger` object with a log name.
+To create a new log,  create a `Logger` object with a log name.
 
 	easylogger::Logger NETWORK("NETWORK");
 
