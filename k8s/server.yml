@@ -3,12 +3,11 @@ kind: Pod
 metadata:
  name: logger-server
  labels:
-    zone: prod
-    version: v1
+    app: server
 spec:
 	  containers:
-	  - name: server
-	    image: alpine
-          imagePullPolicy: Never
-	    ports:
-        - containerPort: 8081
+      - name: server
+        image: alpine
+            imagePullPolicy: Never
+        ports:
+          - containerPort: 8081

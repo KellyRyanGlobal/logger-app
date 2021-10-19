@@ -180,5 +180,43 @@ Will build a server and client application
 3. **Terminal2**: Run `./test_client.exe `
 4. **Terminal2**: Verify output by running `cat output/server.out`
 
+# Kubernetes Deployment
+
+## Prerequisite
+The prerequisite instructions are outside of the scope and require the tester to have a working knowledge of how kubernetes works. 
+
+### Windows Docker
+See https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+- Enable Kubernetes in Docker desktop https://docs.docker.com/desktop/kubernetes/
+- Kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+
+### Linux
+See https://kubernetes.io/docs/setup/ for more information on setup
+
+- Minikube https://minikube.sigs.k8s.io/docs/start/
+- Kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 
+## Deploy Registry script
+This is a local registry for storing images for k8s deployment. This will allow for k8s to pull images locally for pod deployment
+1. **Terminal**: Run `k8s/script/kind-with-registry.sh`
+2. **Terminal**: Run `docker container ls`
+3. **Terminal**: Verify the following container exists
+    1. 
+    ```
+    CONTAINER ID   IMAGE     COMMAND                  CREATED        STATUS        PORTS                      NAMES
+    <container id>  registry "/entrypoint.sh /etc…"   <Created time> <status time>  127.0.0.1:5000->5000/tcp   kind-registry
+    ```
+
+## Create image for Client (Ubuntu)
+1. **Terminal**: Run `docker build -t -f docker/ubuntu/Dockerfile`
+2. **Terminal**: Run `docker tag logger_ubuntu:latest localhost:5000/logger_ubuntu:latest`
+3. **Terminal**: Run `docker push localhost:5000/logger_ubuntu`
+4. **Terminal**: Run `kubectl apply -f k8s/client.yml`
+5. **Terminal**: Run `kubectl get pods`
+6. Verify the pod is running
+    1.
+    ```
+    NAME            READY   STATUS    RESTARTS   AGE
+    logger-client   1/1     Running   0          17h
+    ```
