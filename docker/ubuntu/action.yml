@@ -1,0 +1,5 @@
+name: 'Logger Build Ubuntu'
+description: builds logger in ubunt environment
+runs:
+  using: 'docker'
+  image: 'docker/ubuntu/Dockerfile'

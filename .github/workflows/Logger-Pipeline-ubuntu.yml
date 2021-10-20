@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps: 
-      - name: checkout
-        uses: actions/checkout@v2
+      - name: Checkout on ubuntu
+        id: Logger
+        uses: actions/docker/ubuntu@v1
 
       - name: Run the make build
         runs: 
