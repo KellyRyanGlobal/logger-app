@@ -57,7 +57,7 @@ static void overflow_test() {
 	// signed short int: -32768 to 32767
 	// overflow 
 	max++;
-	LOG_INFO(TEST,"expected result: -32768, actual result due to overflow: " << max);
+	LOG_INFO(TEST,"expected result: 32768, actual result due to overflow: " << max);
 }
 
 
