@@ -18,5 +18,4 @@ jobs:
       - name: Run the make build
         uses: ./
         run: |
-          ls
           make -C src
