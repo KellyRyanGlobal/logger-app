@@ -16,5 +16,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run the make build
-        run: |
-          make -C src
+        runs: 
+          using: 'docker'
+          image: 'docker/ubuntu/Dockerfile'
