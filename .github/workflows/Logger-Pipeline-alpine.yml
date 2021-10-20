@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - 'kelly-13-create-k8s-pods'
+permissions: read-all
 
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: alpine-latest
 
     steps: 
       - name: Run the make build
-        run: make -C src
+        run: |
+          make -C src
 
