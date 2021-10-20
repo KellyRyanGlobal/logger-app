@@ -166,7 +166,18 @@ To build logger in ubuntu in a docker container run the following
 3. **Terminal2**: Open a new terminal and enter `docker exec -it logger sh`
 4. **Container**: In the container run `/.build.sh`
 5. **Container**: `cat input/results.txt`
-4. Verify the contents of the txt file
+6. Verify the contents of the txt file
+
+## Build logger in local docker container (ubuntu)
+
+To build logger in alpine in a docker container run the following
+1. **Terminal1**:`docker build -t logger_alpine:latest -f docker/alpine/Dockerfile`
+2. **Terminal1**:`docker run --name logger_alpine logger_alpine:latest`
+3. **Terminal2**: Open a new terminal and enter `docker exec -it logger_alpine sh`
+4. **Container**: In the container run `/.build.sh`
+5. **Container**: `cat input/results.txt`
+6. Verify the contents of the txt file
+
 
 
 ## Server-Client Deployment
