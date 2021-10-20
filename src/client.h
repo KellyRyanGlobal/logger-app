@@ -68,7 +68,6 @@ class Client_socket{
         {
             std::string mystring ((std::istreambuf_iterator<char>(myfile)), std::istreambuf_iterator<char>());
             int bytes_sent = send(sock , mystring.c_str() , mystring.length() , 0 );
-            LOG_INFO(CLIENT, "sending :" << mystring << "\n");
             LOG_INFO(CLIENT, "bytes sent " << bytes_sent << "\n");
             //valread = read( sock , buffer , 1024);
         }            
