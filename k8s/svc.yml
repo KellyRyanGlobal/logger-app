@@ -1,0 +1,14 @@
+apiversion: v1
+  kind: Service
+  metadata:
+    name: client-svc
+    labels:
+      app: client
+  spec:
+    type: NodePort
+    ports:
+    - port: 8050
+      nodePort: 30001
+      protocol: TCP
+    selector:
+      app: client

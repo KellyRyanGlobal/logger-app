@@ -209,7 +209,13 @@ This is a local registry for storing images for k8s deployment. This will allow 
     ```
 
 ## Create image for Client (Ubuntu)
-1. **Terminal**: Run `docker build -t -f docker/ubuntu/Dockerfile`
+The following instructions willl create a docker container for client that is controlled by kubernetes.
+
+### Prerequisite
+- Verify input and output folders do not exist in SCM root directory
+
+### Instructions
+1. **Terminal**: Run `docker build -t logger_ubuntu -f docker/ubuntu/Dockerfile .`
 2. **Terminal**: Run `docker tag logger_ubuntu:latest localhost:5000/logger_ubuntu:latest`
 3. **Terminal**: Run `docker push localhost:5000/logger_ubuntu`
 4. **Terminal**: Run `kubectl apply -f k8s/client.yml`
@@ -220,3 +226,5 @@ This is a local registry for storing images for k8s deployment. This will allow 
     NAME            READY   STATUS    RESTARTS   AGE
     logger-client   1/1     Running   0          17h
     ```
+### Cleanup
+1. **Terminal**: To delete the pod simply run `kubectl delete -f k8s/client.yml`

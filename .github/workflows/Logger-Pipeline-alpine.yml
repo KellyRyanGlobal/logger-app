@@ -3,7 +3,14 @@ on:
   # but only for the main branch
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - 'kelly-13-create-k8s-pods'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Run the make build
+        run: make -C src
+

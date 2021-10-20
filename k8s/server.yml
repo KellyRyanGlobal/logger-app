@@ -7,7 +7,6 @@ metadata:
 spec:
 	  containers:
       - name: server
-        image: alpine
-            imagePullPolicy: Never
+        image: localhost:5000/logger_alpine:latest
         ports:
-          - containerPort: 8081
+          - containerPort: 8050
