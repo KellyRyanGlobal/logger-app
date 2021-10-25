@@ -32,7 +32,7 @@ static void test2() {
 
 static void add_test() {
 	// add ints
-	int a = 10, b = 20, result;
+	int a = 10, b = 21, result;
     result = sum <int> (a, b);
     LOG_INFO(TEST,  a << " + " << b << " = " << result);
 }
