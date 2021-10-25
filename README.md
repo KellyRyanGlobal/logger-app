@@ -156,6 +156,34 @@ To build logger locally in your workstation, run the following command
 1. `make -C src`
 2. Verify the test-bin is created in the `src` folder
 3. Verify the build does not fail
+
+## Basic File Structure
+- root
+    ### test_client.exe
+    ### service.exe
+ 
+    ### input/results.txt
+    ### out/server.out
+ 
+    ### src/*.h   
+    ### src/test_client.cc
+    ### src/Makefile
+    ### src/Doxyfile
+
+    ### test/acceptance/acceptance.sh
+    ### test/functional/function.sh
+    ### test/smoke/smoke.sh
+    ### test/common.sh  (common functions used by all the test suites)
+
+    ### jenkins/Jenkinsfile  (contains steps that run each test suite)
+
+  ## Example manually running a test suite such as the acceptance tests.
+    1. make -C src
+    2. run the commands in associated stage of the jenkins/Jenkinsfile
+        $ chmod +x test/acceptance/acceptance.sh
+        $ test/acceptance/acceptance.sh input/results.txt
+        
+        
     
 
 ## Build logger in local docker container
