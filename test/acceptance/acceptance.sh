@@ -16,7 +16,7 @@ main () {
     echo "Check logic of application"
     sum=$( expr "10" + "20")
     ans="TEST INFO: 10 + 20 = $sum"
-    logging_test $ans
+    logging_test "$ans"
 
     
     echo "Check the system hostname"
