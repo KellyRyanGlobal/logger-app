@@ -51,13 +51,13 @@ logging_test() {
         do
             if [[ "$i" == *"$1"* ]]; then
                 echo "$i"
-                log_success "$1 log was found at $i"
+                log_success "$1 log was found at $i\n"
                 echo -e "\n" 
                 check=$((check+1))       
             fi
         done
     if [[ "$check" -eq "0" ]]; then
-        log_failure "$1 was not in log"
+        log_failure "$1 was not in log\n"
         echo "FAIL "        
         TEST_CHECK=${TEST_CHECK+1}
     fi
