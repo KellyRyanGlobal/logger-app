@@ -20,17 +20,17 @@ fi
 
 log_header() {
  printf "\n${BOLD}${MAGENTA}==========  %s  ==========${NORMAL}\n" "$@" >&2 
- printf "=============================================" >> output/test-results.txt
+ echo "=====================  %s  ========================" >> output/test-results.txt    # TODO this method is never called
 }
 
 log_success() {
  printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
- printf "log success">> output/test-results.txt
+ echo "PASS: %s">> output/test-results.txt
 }
 
 log_failure() {
  printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 
- printf "log failure">> output/test-results.txt
+ echo "FAIL: %s">> output/test-results.txt
 }
 
 not_empty() {
