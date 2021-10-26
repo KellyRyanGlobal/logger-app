@@ -20,17 +20,17 @@ fi
 
 log_header() {
  printf "\n${BOLD}${MAGENTA}==========  %s  ==========${NORMAL}\n" "$@" >&2 
- "=============================================" >> output/test-results.txt
+ printf "=============================================" >> output/test-results.txt
 }
 
 log_success() {
  printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
- "log success">> output/test-results.txt
+ printf "log success">> output/test-results.txt
 }
 
 log_failure() {
  printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 
-  "log failure">> output/test-results.txt
+ printf "log failure">> output/test-results.txt
 }
 
 not_empty() {
