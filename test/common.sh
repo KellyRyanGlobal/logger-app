@@ -19,15 +19,18 @@ else
 fi
 
 log_header() {
- printf "\n${BOLD}${MAGENTA}==========  %s  ==========${NORMAL}\n" "$@" >&2 >> output/test-results.txt
+ printf "\n${BOLD}${MAGENTA}==========  %s  ==========${NORMAL}\n" "$@" >&2 
+ "=============================================" >> output/test-results.txt
 }
 
 log_success() {
- printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 >> output/test-results.txt
+ printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
+ "log success">> output/test-results.txt
 }
 
 log_failure() {
- printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 >> output/test-results.txt
+ printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 
+  "log failure">> output/test-results.txt
 }
 
 not_empty() {
@@ -64,7 +67,7 @@ logging_test() {
 }
 
 check_files() {
-    
+
     echo "Verify $1 exists"
     if [ -f "$1" ]; then
         log_success "$1 log was found"
