@@ -8,17 +8,32 @@ networks:
                 - subnet: 172.28.0.0/16
 
 services:
-  alpine:    
+  server:    
     build: 
         context: .
         dockerfile: docker/alpine/Dockerfile
-    container_name: alpine
+    container_name: server
     networks:
       logger_net:
-         ipv4_address: 172.28.1.1
+         ipv4_address: 172.28.1.2
     volumes:
       - .:/app
     ports:
       - "8050:8050"
     privileged: true
     user: root
+  client:    
+    build: 
+        context: .
+        dockerfile: docker/alpine/Dockerfile
+    container_name: client
+    networks:
+      logger_net:
+         ipv4_address: 172.28.1.1
+    volumes:
+      - .:/app
+    privileged: true
+    user: root
+    depends_on:
+      - server
+  

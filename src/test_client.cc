@@ -80,8 +80,8 @@ void IP_formatter(char *IPbuffer) { //convert IP string to dotted decimal
 int main(int argc , char *argv[]) {
 
     char host[256];
-    char *IP;
-	ofstream file;;
+    char *IP = argv[1];
+	ofstream file;
     int hostname;
 
 	SUB.Level(easylogger::LEVEL_WARNING);
@@ -100,13 +100,15 @@ int main(int argc , char *argv[]) {
 	test2();
 	add_test();
 	overflow_test();
-
+	LOG_INFO(TEST,"Program Name Is: " << argv[0]);
+	LOG_INFO(TEST,"Server IP Is: " << IP);
 	hostname = gethostname(host, sizeof(host));
 	host[sizeof(host)-1] = '\0';
 	host_test(hostname);
 	LOG_INFO(HOST, "hostname: " << host);
 	sleep(5);
-	Client_socket C;
+	Client_socket C(argc, argv);
+	LOG_INFO(HOST, "waiting");
 	C.send_file();	
 	fclose(stdout);	
 	//clear output for sending
