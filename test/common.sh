@@ -19,15 +19,15 @@ else
 fi
 
 log_header() {
- printf "\n${BOLD}${MAGENTA}==========  %s  ==========${NORMAL}\n" "$@" >&2 >> output/test-results.txt
+ printf "\n${BOLD}${MAGENTA}==========  %s  ==========${NORMAL}\n" "$@" >&2 >> output/test-results.html
 }
 
 log_success() {
- printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 >> output/test-results.txt
+ printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 >> output/test-results.html
 }
 
 log_failure() {
- printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 >> output/test-results.txt
+ printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 >> output/test-results.html
 }
 
 not_empty() {
