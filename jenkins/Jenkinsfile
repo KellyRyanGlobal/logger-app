@@ -64,7 +64,8 @@ pipeline {
      }
     post { 
         always { 
-            echo 'I will always say Hello again!'
+            echo 'saving test results'
+            archiveArtifacts artifacts: 'input/results.txt', onlyIfSuccessful: true
         }
     }
 }
