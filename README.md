@@ -183,8 +183,6 @@ To build logger locally in your workstation, run the following command
         $ chmod +x test/acceptance/acceptance.sh
         $ test/acceptance/acceptance.sh input/results.txt
         
-        
-    
 
 ## Build logger in local docker container
 
