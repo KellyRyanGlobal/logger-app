@@ -65,8 +65,8 @@ pipeline {
     post { 
         always { 
             echo 'saving test results'
-            archiveArtifacts artifacts: 'input/results.txt', onlyIfSuccessful: true
-            archiveArtifacts artifacts: 'output/', onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'input/results.txt', onlyIfSuccessful: false
+            archiveArtifacts artifacts: 'output/', onlyIfSuccessful: false
         }
     }
 }
