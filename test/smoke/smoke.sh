@@ -14,6 +14,7 @@ main() {
     check_files "server.exe"
 
     read_parameters $1
+    log_header $0
     echo "Check if results not null"
     not_empty $results
 

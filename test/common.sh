@@ -25,12 +25,12 @@ log_header() {
 
 log_success() {
  printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
- echo "$0 PASS: "$@"">> output/test-results.txt
+ echo "PASS: "$@"">> output/test-results.txt
 }
 
 log_failure() {
  printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 
- echo "$0 FAIL: "$@"">> output/test-results.txt
+ echo "FAIL: "$@"">> output/test-results.txt
 }
 
 read_parameters() {
