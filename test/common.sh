@@ -25,7 +25,7 @@ log_header() {
 
 log_success() {
  printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
- suite=`echo "${$0##*/}"  | sed 's/.sh//g'`
+ suite=`echo "${0##*/}"  | sed 's/.sh//g'`
  echo ""$suite" PASS: "$@"">> output/test-results.txt
 }
 
