@@ -24,8 +24,7 @@ pipeline {
                 ansiColor('vga') {
                     sh '''
                     chmod +x test/smoke/smoke.sh
-                    test/functional/functional.sh input/results.txt
-                    test/smoke/smoke.sh 
+                    test/smoke/smoke.sh input/results.txt
                     '''
                 }                
             }
@@ -35,6 +34,7 @@ pipeline {
                 ansiColor('vga') {
                     sh '''
                     chmod +x test/functional/functional.sh
+                    test/functional/functional.sh
                      '''
 
                 }                

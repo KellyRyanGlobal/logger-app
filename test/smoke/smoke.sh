@@ -9,11 +9,12 @@ TEST_CHECK=0
 
 main() {
 
-
     echo "Verify Files were built "    
     check_files "test_client.exe"
     check_files "server.exe"
 
+    echo "reading in $1 "
+    IFS=$'\r\n' command eval 'results=($(cat $1))'
     echo "Check if results not null"
     not_empty $results
 

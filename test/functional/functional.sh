@@ -9,9 +9,6 @@ TEST_CHECK=0
 
 main() {
 
-    echo "reading in $1 "
-    IFS=$'\r\n' command eval 'results=($(cat $1))'
-
     echo "Check for network_test"
     logging_test "NETWORK"
 
