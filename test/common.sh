@@ -25,7 +25,7 @@ log_header() {
 
 log_success() {
  printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
- echo "PASS: "$@"">> output/test-results.txt
+ echo "$0 PASS: "$@"">> output/test-results.txt
 }
 
 log_failure() {
