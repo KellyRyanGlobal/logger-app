@@ -14,6 +14,9 @@ main() {
     check_files "test_client.exe"
     check_files "server.exe"
 
+    echo "Check if results not null"
+    not_empty $results
+
     if [[ "$TEST_CHECK" -gt "0" ]]; then
         echo " Test had $TEST_CHECK Failures"
         return 1
