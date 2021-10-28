@@ -9,7 +9,7 @@ TEST_CHECK=0
 
 main() {
 
-    read_parameters()
+    read_parameters $results
     echo "Check for network_test"
     logging_test "NETWORK"
 
