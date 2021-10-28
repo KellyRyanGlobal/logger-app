@@ -13,7 +13,7 @@ main() {
     check_files "test_client.exe"
     check_files "server.exe"
 
-    read_parameters $results
+    read_parameters $1
     echo "Check if results not null"
     not_empty $results
 

@@ -10,7 +10,7 @@ source test/common.sh
 TEST_CHECK=0
 
 main () {
-    read_parameters $results
+    read_parameters $1
     echo "Check logic of application"
     sum=$( expr "10" + "20")
     ans="TEST INFO: 10 + 20 = $sum"
