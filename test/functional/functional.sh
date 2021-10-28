@@ -12,6 +12,9 @@ main() {
     echo "reading in $1 "
     IFS=$'\r\n' command eval 'results=($(cat $1))'
 
+    echo "Check if results not null"
+    not_empty $results
+
     echo "Check for network_test"
     logging_test "NETWORK"
 
