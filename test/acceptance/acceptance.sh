@@ -13,7 +13,7 @@ main () {
     read_parameters $1
     echo "Check logic of application"
     sum=$( expr "10" + "20")
-    ans="TEST INFO: 10 + 21 = $sum"
+    ans="TEST INFO: 10 + 20 = $sum"
     logging_test "$ans"
 
     
