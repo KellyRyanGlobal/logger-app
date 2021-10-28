@@ -33,6 +33,11 @@ log_failure() {
  echo "FAIL: "$@"">> output/test-results.txt
 }
 
+read_parameters() {
+    echo "reading in $1 "
+    IFS=$'\r\n' command eval 'results=($(cat $1))'
+}
+
 not_empty() {
     count=0
     # count the amount of lines logged
