@@ -30,7 +30,7 @@ log_success() {
 
 log_failure() {
  printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 
- echo "FAIL: "$@"">> output/test-results.txt
+ echo "$0 FAIL: "$@"">> output/test-results.txt
 }
 
 read_parameters() {
