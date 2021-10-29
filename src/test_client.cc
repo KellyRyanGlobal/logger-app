@@ -37,10 +37,6 @@ static void add_test() {
     LOG_INFO(TEST,  a << " + " << b << " = " << result);
 }
 
-TEST(functional, HandlesPositiveInput) {
-  EXPECT_EQ(1), 1);
-}
-
 /** function to calculate range of data type */
 int printSignedRange(int count)
 {
