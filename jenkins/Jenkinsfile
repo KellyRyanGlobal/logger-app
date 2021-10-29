@@ -17,7 +17,7 @@ pipeline {
                 chmod +x build.sh
                 ./build.sh "${OS_HOST}"                
                 ./server.exe &
-                ./test_client.exe "${SERVER_IP}"
+                ./test_client.exe 
                 '''
             }
         }
