@@ -10,12 +10,8 @@ main() {
         mkdir -p input output
         sleep 5  
         
-        if [[ ! $(make -C src) ]]; then
-            echo "Build Failed"
-            return 1
-        else
-            echo "Build successful"
-        fi    
+        make -C src && echo "Build successful" || echo "Build Failed" && return 1
+          
         # adding in 5 seconds in case system is slow    
          
     fi
