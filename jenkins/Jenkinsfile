@@ -67,6 +67,11 @@ pipeline {
             echo 'saving test results'
             archiveArtifacts artifacts: 'input/results.txt', onlyIfSuccessful: false
             archiveArtifacts artifacts: 'output/', onlyIfSuccessful: false
+            sh '''
+                chmod +x test/reporting/reporting.sh
+                test/reporting/reporting.sh input/test-results.txt
+                
+                '''
         }
     }
 }
