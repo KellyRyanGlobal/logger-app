@@ -54,7 +54,7 @@ static void overflow_test() {
 	short int size = sizeof(short int)*BIT_SIZE; // sizeof returns # bytes
 	short int max = printSignedRange(size);
 	LOG_INFO(TEST,"max size of short int: " <<  max);
-	{{{}}
+	
 	// signed short int: -32768 to 32767
 	// overflow 
 	max++;
@@ -121,6 +121,7 @@ int main(int argc , char *argv[]) {
 		else
 		{
 			LOG_ERROR(HOST, "need to provide a IP");
+			return 1;
 		}
 
 	}
