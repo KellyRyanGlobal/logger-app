@@ -7,11 +7,11 @@ main() {
         return 1        
     else
         make -C src
-        mkdir -p input output        
-        sleep 5        
+        mkdir -p input output    
+        # adding in 5 seconds in case system is slow    
+        sleep 5   
     fi
     return 0
-
 }
 
 
