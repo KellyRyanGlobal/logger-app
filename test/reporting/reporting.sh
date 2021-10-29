@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
     if [ $# -eq 0 ] ; then
        echo "USAGE: $(basename $0) file1 file2 file3 ..."
