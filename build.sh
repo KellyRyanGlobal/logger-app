@@ -6,10 +6,18 @@ main() {
         echo " Host was not passed as a param (see config)"
         return 1        
     else
-        make -C src
-        mkdir -p input output    
+        
+        mkdir -p input output
+        sleep 5  
+        
+        if [[ ! $(make -C src) ]]; then
+            echo "Build Failed"
+            return 1
+        else
+            echo "Build successful"
+        fi    
         # adding in 5 seconds in case system is slow    
-        sleep 5   
+         
     fi
     return 0
 }
