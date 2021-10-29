@@ -25,12 +25,14 @@ log_header() {
 
 log_success() {
  printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
- echo "PASS: "$@"">> output/test-results.txt
+ suite=`echo "${0##*/}"  | sed 's/.sh//g'`
+ echo ""$suite" PASS: "$@"">> output/test-results.txt
 }
 
 log_failure() {
  printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 
- echo "FAIL: "$@"">> output/test-results.txt
+ suite=`echo "${0##*/}"  | sed 's/.sh//g'`
+ echo ""$suite" FAIL: "$@"">> output/test-results.txt
 }
 
 read_parameters() {
