@@ -83,6 +83,7 @@ int main(int argc , char *argv[]) {
     char *IP = argv[1];
 	ofstream file;
     int hostname;
+	
 
 	SUB.Level(easylogger::LEVEL_WARNING);
 	NETWORK.Format("[%F:%C %P] %N: %S");
@@ -107,10 +108,25 @@ int main(int argc , char *argv[]) {
 	host_test(hostname);
 	LOG_INFO(HOST, "hostname: " << host);
 	sleep(5);
-	Client_socket C(argc, argv);
-	LOG_INFO(HOST, "waiting");
-	C.send_file();	
-	fclose(stdout);	
+	try
+	{
+		if(argv[1] != NULL)
+		{
+			Client_socket C(argc, argv);
+			LOG_INFO(HOST, "waiting");
+			C.send_file();	
+			fclose(stdout);	
+		}
+	}
+	catch(const std::exception& e)
+	{
+		LOG_ERROR(HOST, e.what() << '\n');
+		fclose(stdout);	
+	}
+	 
+	
+	
+	
 	//clear output for sending
 	//std output on console
 	// test1();
