@@ -11,7 +11,7 @@ services:
     entrypoint: /bin/bash
     build: 
         context: ../../
-        dockerfile: Dockerfile-client
+        dockerfile: Dockerfile-compose
     container_name: client      
     volumes:
       - ../../:/app
