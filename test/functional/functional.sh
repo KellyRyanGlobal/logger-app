@@ -9,7 +9,9 @@ TEST_CHECK=0
 
 main() {
 
+
     read_parameters $1
+
     echo "Check for network_test"
     logging_test "NETWORK"
 

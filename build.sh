@@ -11,8 +11,6 @@ main() {
         make -C src
         mkdir -p input output        
         sleep 5        
-        ./server.exe &
-        ./test_client.exe
     fi
     return 0
 
