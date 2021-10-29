@@ -72,6 +72,7 @@ pipeline {
                 test/reporting/reporting.sh input/test-results.txt
                 
                 '''
+            archiveArtifacts artifacts: 'input/results.html', onlyIfSuccessful: false
         }
     }
 }
