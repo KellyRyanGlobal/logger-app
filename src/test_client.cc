@@ -43,7 +43,6 @@ int printSignedRange(int count)
     int min = pow(2, count - 1);
     int max = pow(2, count - 1) - 1;
     // printf("\n %d to %d \n", min * (-1), max);
-	<(%
 	return max;
 }
 
