@@ -15,7 +15,7 @@ services:
     container_name: client      
     volumes:
       - ../../:/app
-    command: -c "./build.sh alpine && ./test_client.exe ${server_ip}"
+    command: -c "./build.sh alpine && ./test_client.exe ${alpine_server}"
     networks:
       logger_net:
          ipv4_address: 165.28.1.1

@@ -18,7 +18,7 @@ services:
     command: -c "./build.sh alpine && ./server.exe"  
     networks:
       logger_net:
-          ipv4_address: "${server_ip}"
+          ipv4_address: "${alpine_server}"
     ports:
       - "8050:8050"
 

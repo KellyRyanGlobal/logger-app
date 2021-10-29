@@ -10,8 +10,8 @@ services:
   client:
     entrypoint: /bin/bash
     build: 
-        context: .
-        dockerfile: Dockerfile-compose
+        context: ../../
+        dockerfile: docker/ubuntu/Dockerfile-compose
     container_name: client      
     volumes:
       - ../../:/app
