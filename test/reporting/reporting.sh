@@ -15,7 +15,10 @@
             }
             </style>" >> $html
        echo "   <body>" >> $html
-       echo '<table>' >> $htm
+       echo '   <table border="1" width="100%
+               	<col style="width:10%">
+                  <col style="width:5%">
+                  <col style="width:85%">' >> $html
        echo '<th colspan="2">Test Suite</th>' >> $html
        echo '<th colspan="2">Status</th>' >> $html
        echo '<th>Message</th>' >> $html
@@ -26,7 +29,7 @@
           done
          echo "</tr>" >> $html
        done < $file
-        echo '</table>'
+        echo '</table>' >> $html
         echo "   </body>" >> $html
         echo "</html>" >> $html
     done
