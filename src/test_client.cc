@@ -8,6 +8,7 @@
 #include <cstring>
 #include <sys/types.h>
 #include <bits/stdc++.h>
+#include "gtest/gtest.h"
 
 #define BIT_SIZE 8;
 using namespace std;
@@ -35,6 +36,10 @@ static void add_test() {
 	int a = 10, b = 20, result;
     result = sum <int> (a, b);
     LOG_INFO(TEST,  a << " + " << b << " = " << result);
+}
+
+TEST(functional, HandlesPositiveInput) {
+  EXPECT_EQ(1), 1);
 }
 
 /** function to calculate range of data type */
