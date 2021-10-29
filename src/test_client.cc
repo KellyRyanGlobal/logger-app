@@ -82,7 +82,8 @@ int main(int argc , char *argv[]) {
     char host[256];
     char *IP = argv[1];
 	ofstream file;
-    int hostname;
+    int hostname;	
+	const char *home[1] = { "127.0.0.1" };
 	
 
 	SUB.Level(easylogger::LEVEL_WARNING);
@@ -112,11 +113,16 @@ int main(int argc , char *argv[]) {
 	{
 		if(argv[1] != NULL)
 		{
-			Client_socket C(argc, argv);
+			Client_socket C(argv);
 			LOG_INFO(HOST, "waiting");
 			C.send_file();	
 			fclose(stdout);	
 		}
+		else
+		{
+			LOG_ERROR(HOST, "need to provide a IP");
+		}
+
 	}
 	catch(const std::exception& e)
 	{

@@ -23,7 +23,7 @@ class Client_socket{
     char buffer[1024] = {0};
 
     public:
-        Client_socket (int argc, char *argv[]) {            
+        Client_socket ( char *argv[]) {            
             create_socket();   
                 
             serv_addr.sin_family = AF_INET;
