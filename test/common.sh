@@ -27,14 +27,14 @@ log_success() {
  printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
  suite=`echo "${0##*/}"  | sed 's/.sh//g'`
  #using a semicolon as a delimeter for reporting
- echo ""$suite"; PASS; "$@"">> output/test-results.txt
+ echo ""$suite"; PASS; "$@";">> output/test-results.txt
 }
 
 log_failure() {
  printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 
  suite=`echo "${0##*/}"  | sed 's/.sh//g'`
  #using a semicolon as a delimeter for reporting
- echo ""$suite"; FAIL; "$@"">> output/test-results.txt
+ echo ""$suite"; FAIL; "$@";">> output/test-results.txt
 }
 
 read_parameters() {
