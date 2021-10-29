@@ -10,9 +10,7 @@ source test/common.sh
 TEST_CHECK=0
 
 main () {
-    echo "reading in $1 "
-    IFS=$'\r\n' command eval 'results=($(cat $1))'
-
+    read_parameters $1
     echo "Check logic of application"
     sum=$( expr "10" + "20")
     ans="TEST INFO: 10 + 20 = $sum"

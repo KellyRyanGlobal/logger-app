@@ -19,15 +19,25 @@ else
 fi
 
 log_header() {
- printf "\n${BOLD}${MAGENTA}==========  %s  ==========${NORMAL}\n" "$@" >&2
+ printf "\n${BOLD}${MAGENTA}==========  %s  ==========${NORMAL}\n" "$@" >&2 
+ echo "=====================  "$@"  ========================" >> output/test-results.txt    # TODO this method is never called
 }
 
 log_success() {
- printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2
+ printf "${GREEN}✔ %s${NORMAL}\n" "$@" >&2 
+ suite=`echo "${0##*/}"  | sed 's/.sh//g'`
+ echo ""$suite" PASS: "$@"">> output/test-results.txt
 }
 
 log_failure() {
- printf "${RED}❌ %s${NORMAL}\n" "$@" >&2
+ printf "${RED}❌ %s${NORMAL}\n" "$@" >&2 
+ suite=`echo "${0##*/}"  | sed 's/.sh//g'`
+ echo ""$suite" FAIL: "$@"">> output/test-results.txt
+}
+
+read_parameters() {
+    echo "reading in $1 "
+    IFS=$'\r\n' command eval 'results=($(cat $1))'
 }
 
 not_empty() {
