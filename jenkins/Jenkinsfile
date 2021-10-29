@@ -66,7 +66,7 @@ pipeline {
         always { 
             echo 'saving test results'
             archiveArtifacts artifacts: 'input/results.txt', onlyIfSuccessful: false
-            archiveArtifacts artifacts: 'output/', onlyIfSuccessful: false
+            archiveArtifacts artifacts: 'output/server.out', onlyIfSuccessful: false
             sh '''
                 chmod +x test/reporting/reporting.sh
                 test/reporting/reporting.sh output/test-results.txt
