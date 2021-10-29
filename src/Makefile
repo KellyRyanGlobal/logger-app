@@ -20,5 +20,5 @@ docs:
 clean:
 	rm -f *-bin
 	rm -f *.exe	
-	rm -rf input
-	rm -rf output
+	# rm -rf input
+	# rm -rf output
