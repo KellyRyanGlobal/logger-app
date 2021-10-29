@@ -69,10 +69,10 @@ pipeline {
             archiveArtifacts artifacts: 'output/', onlyIfSuccessful: false
             sh '''
                 chmod +x test/reporting/reporting.sh
-                test/reporting/reporting.sh input/test-results.txt
+                test/reporting/reporting.sh output/test-results.txt
                 
                 '''
-            archiveArtifacts artifacts: 'input/results.html', onlyIfSuccessful: false
+            archiveArtifacts artifacts: 'output/test-results.html', onlyIfSuccessful: false
         }
     }
 }
