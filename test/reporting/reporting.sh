@@ -16,15 +16,13 @@
             </style>" >> $html
        echo "   <body>" >> $html
        echo '<table>' >> $htm
-       echo '<th>HEADING1</th>' >> $html
-       echo '<th>HEADING2</th>' >> $html
-       echo '<th>HEADING3</th>' >> $html
-       echo '<th>HEADING4</th>' >> $html
+       echo '<th>Test Suite</th>' >> $html
+       echo '<th>Status</th>' >> $html
+       echo '<th>Message</th>' >> $html
        while IFS=';' read -ra line ; do
         echo "<tr>" >> $html
         for i in "${line[@]}"; do
            echo "<td>$i</td>" >> $html
-         # echo "<td>$i</td>" >> $html
           done
          echo "</tr>" >> $html
        done < $file
