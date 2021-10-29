@@ -3,5 +3,3 @@ ENTRYPOINT ["tail", "-f", "/dev/null"]
 RUN apk update && apk add doxygen g++ make bash
 COPY . /app
 WORKDIR /app
-RUN chmod +x build.sh
-RUN ./build.sh alpine
