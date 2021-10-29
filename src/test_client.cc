@@ -8,7 +8,6 @@
 #include <cstring>
 #include <sys/types.h>
 #include <bits/stdc++.h>
-#include "gtest/gtest.h"
 
 #define BIT_SIZE 8;
 using namespace std;
