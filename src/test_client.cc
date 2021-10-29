@@ -82,8 +82,7 @@ int main(int argc , char *argv[]) {
     char host[256];
     char *IP = argv[1];
 	ofstream file;
-    int hostname;	
-	const char *home[1] = { "127.0.0.1" };
+    int hostname;
 	
 
 	SUB.Level(easylogger::LEVEL_WARNING);
