@@ -186,7 +186,8 @@ To build logger in alpine in a docker container run the following
 
 ### Deployment
 The following instructions will build logger in 2 containers using docker-compose
-1. **Terminal1**: `docker-compose -f docker/<linux os>/docker-compose.client.yml -f docker/<linux os>/docker-compose.server.yml up -d`
+1. **Local Host**: Open a windows terminal and naivigate to the root directory of the project
+1. **Terminal1**: `docker-compose -f docker/<linux os>/docker-compose.client.yml -f docker/<linux os>/docker-compose.server.yml --env-file .env up -d`
 1. **Terminal1**: Verify output 
 ```
 Creating network "<linux_OS>_logger_net" with the default driver
