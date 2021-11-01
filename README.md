@@ -195,7 +195,7 @@ Creating server ... done
 Creating client ... done
 ```
 1. **Local Workstation**: Open Docker Desktop
-1. **Docker Desktop**: Click Alpine and then click server from the dropdown
+1. **Docker Desktop**: Click the <linux OS> being run and then click server from the dropdown
 1. **Docker Desktop**: Verify the output shows the file saved
 1.  **Local Workstation**: Verify the following are now in the root directory
     1.  `test_client.exe`
