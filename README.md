@@ -193,5 +193,6 @@ Will build a server and client application
 3. **Terminal2**: Run `./test_client.exe `
 4. **Terminal2**: Verify output by running `cat output/server.out`
 
-
+# Run CMake in Visual Studio
+`cmake --build . --target RUN_TESTS`
 
