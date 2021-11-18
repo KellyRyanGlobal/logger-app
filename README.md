@@ -102,6 +102,7 @@ The following needs to be pre installed on a Windows 10 workstation  before proc
 
 - VirtualBox (hypervisor)- See VirtualBox Prerequisite
 - Linux (CentOS prefered) OS VM image
+- Docker Desktop - Used for viewing containerization
 
 ### VirtualBox 
 The following needs to be installed on the Linux OS VM that is installed on VirtualBox. The installation of how to install the OS is outside of the scope of this readme.
@@ -156,31 +157,54 @@ Install plugins within the jenkins dashboard after installation. These help with
 
 To build logger locally in your workstation, run the following command
 1. `make -C src`
-2. Verify the test-bin is created in the `src` folder
-3. Verify the build does not fail
+1. Verify the test-bin is created in the `src` folder
+1. Verify the build does not fail
     
 
 ## Build logger in local docker container (ubuntu)
 
 To build logger in ubuntu in a docker container run the following
 1. **Terminal1**:`docker build -t logger_ubuntu:latest -f docker/ubuntu/Dockerfile`
-2. **Terminal1**:`docker run --name logger logger_ubuntu:latest`
-3. **Terminal2**: Open a new terminal and enter `docker exec -it logger sh`
-4. **Container**: In the container run `/.build.sh`
-5. **Container**: `cat input/results.txt`
-6. Verify the contents of the txt file
+1. **Terminal1**:`docker run --name logger logger_ubuntu:latest`
+1. **Terminal2**: Open a new terminal and enter `docker exec -it logger sh`
+1. **Container**: In the container run `/.build.sh`
+1. **Container**: `cat input/results.txt`
+1. Verify the contents of the txt file
 
 ## Build logger in local docker container (alpine)
 
 To build logger in alpine in a docker container run the following
-1. **Terminal1**:`docker build -t logger_alpine:latest -f docker/alpine/Dockerfile`
-2. **Terminal1**:`docker run --name logger_alpine logger_alpine:latest`
-3. **Terminal2**: Open a new terminal and enter `docker exec -it logger_alpine sh`
-4. **Container**: In the container run `/.build.sh`
-5. **Container**: `cat input/results.txt`
-6. Verify the contents of the txt file
+1. **Terminal1**: `docker build -t logger_alpine:latest -f docker/alpine/Dockerfile .`
+1. **Terminal1**: `docker run --name logger_alpine logger_alpine:latest`
+1. **Terminal2**: Open a new terminal and enter `docker exec -it logger_alpine sh`
+1. **Container**: In the container run `/.build.sh`
+1. **Container**: `cat input/results.txt`
+1. Verify the contents of the txt file
 
+## Build Logger using docker-compose
 
+### Prerequisite
+- Clean root folder of and .exe as well as input and output folders
+
+### Deployment
+The following instructions will build logger in 2 containers using docker-compose
+1. **Local Host**: Open a windows terminal and naivigate to the root directory of the project
+1. **Terminal1**: Run the following command `docker-compose -f docker/<linux os>/docker-compose.client.yml -f docker/<linux os>/docker-compose.server.yml --env-file .env up -d`
+1. **Terminal1**: Verify output 
+```
+Creating network "<linux_OS>_logger_net" with the default driver
+Creating server ... done
+Creating client ... done
+```
+1. **Local Workstation**: Open Docker Desktop
+1. **Docker Desktop**: Click the <linux OS> being run and then click server from the dropdown
+1. **Docker Desktop**: Verify the output shows the file saved
+1.  **Local Workstation**: Verify the following are now in the root directory
+    1.  `test_client.exe`
+    1.  `server.exe`
+    1.  `input/results.txt`
+    1.  `output/server.out`
+1. **Terminal1**: `docker-compose -f docker/<linux os>/docker-compose.client.yml -f docker/<linux os>/docker-compose.server.yml down`
 
 ## Server-Client Deployment
 
@@ -190,10 +214,10 @@ Will build a server and client application
 - Build logger in localhost must be run
 
 ### Build Client and Server
-1. **Terminal1**: Run `./server.exe`
-2. **Localhost**: Open a new Terminal
-3. **Terminal2**: Run `./test_client.exe `
-4. **Terminal2**: Verify output by running `cat output/server.out`
+1. **Terminal1**: Run `./server.exe `
+1. **Localhost**: Open a new Terminal
+1. **Terminal2**: Run `./test_client.exe 127.0.0.1`
+1. **Terminal2**: Verify output by running `cat output/server.out`
 
 
 

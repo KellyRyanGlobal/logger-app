@@ -5,7 +5,7 @@ all: docs test_client server
 # 	# ./test-bin
 
 server: server.cc easylogger.h easylogger-impl.h  Makefile 
-	$(CXX)  server.cc -g -o server.exe
+	$(CXX) server.cc -g -o server.exe
 	chmod +x server.exe
 	mv server.exe ..
 

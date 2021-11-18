@@ -23,7 +23,7 @@ class Client_socket{
     char buffer[1024] = {0};
 
     public:
-        Client_socket () {            
+        Client_socket ( char *argv[]) {            
             create_socket();   
                 
             serv_addr.sin_family = AF_INET;
@@ -31,7 +31,7 @@ class Client_socket{
             serv_addr.sin_port = htons(PORT);
             address_length = sizeof(serv_addr);
 
-            if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0) { 
+            if(inet_pton(AF_INET, argv[1], &serv_addr.sin_addr)<=0) { 
                 LOG_ERROR(BAD, " Invalid address\n");
             }
             create_connection();

@@ -54,6 +54,7 @@ static void overflow_test() {
 	short int size = sizeof(short int)*BIT_SIZE; // sizeof returns # bytes
 	short int max = printSignedRange(size);
 	LOG_INFO(TEST,"max size of short int: " <<  max);
+	
 	// signed short int: -32768 to 32767
 	// overflow 
 	max++;
@@ -80,9 +81,10 @@ void IP_formatter(char *IPbuffer) { //convert IP string to dotted decimal
 int main(int argc , char *argv[]) {
 
     char host[256];
-    char *IP;
-	ofstream file;;
+    char *IP = argv[1];
+	ofstream file;
     int hostname;
+	
 
 	SUB.Level(easylogger::LEVEL_WARNING);
 	NETWORK.Format("[%F:%C %P] %N: %S");
@@ -100,15 +102,38 @@ int main(int argc , char *argv[]) {
 	test2();
 	add_test();
 	overflow_test();
-
+	LOG_INFO(TEST,"Program Name Is: " << argv[0]);
+	LOG_INFO(TEST,"Server IP Is: " << IP);
 	hostname = gethostname(host, sizeof(host));
 	host[sizeof(host)-1] = '\0';
 	host_test(hostname);
 	LOG_INFO(HOST, "hostname: " << host);
 	sleep(5);
-	Client_socket C;
-	C.send_file();	
-	fclose(stdout);	
+	try
+	{
+		if(argv[1] != NULL)
+		{
+			Client_socket C(argv);
+			LOG_INFO(HOST, "waiting");
+			C.send_file();	
+			fclose(stdout);	
+		}
+		else
+		{
+			LOG_ERROR(HOST, "need to provide a IP");
+			return 1;
+		}
+
+	}
+	catch(const std::exception& e)
+	{
+		LOG_ERROR(HOST, e.what() << '\n');
+		fclose(stdout);	
+	}
+	 
+	
+	
+	
 	//clear output for sending
 	//std output on console
 	// test1();
